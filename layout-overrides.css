@@ -161,5 +161,5 @@ html,body{height:auto;min-height:100%;overflow-x:hidden;overflow-y:auto}
 
 
 /* Place feedback directly under Precaution. */
-.header-actions{align-items:flex-start}
-.precaution-group{display:flex;flex:0 0 auto;flex-direction:column;align-items:flex-start;gap:6px}
+.header-actions{flex-direction:column;align-items:flex-start;gap:6px}
+.header-action-row{display:flex;align-items:flex-start;gap:6px}
