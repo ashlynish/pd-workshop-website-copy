@@ -163,3 +163,27 @@ html,body{height:auto;min-height:100%;overflow-x:hidden;overflow-y:auto}
 /* Place feedback directly under Precaution. */
 .header-actions{flex-direction:column;align-items:flex-start;gap:6px}
 .header-action-row{display:flex;align-items:flex-start;gap:6px}
+
+/* Main-page activity guides complement the route and map overview. */
+.activity-guides{grid-column:1/-1;grid-row:4;min-width:0;margin:10px 0 22px}
+.activity-guides-heading{display:grid;grid-template-columns:auto 1fr;align-items:baseline;gap:4px 12px;margin-bottom:12px}
+.activity-guides-heading .sequence-eyebrow{grid-column:1/-1;margin:0}
+.activity-guides-heading h2{margin:0;color:#273a34;font-size:clamp(21px,2.5vw,28px)}
+.activity-guides-heading>p:last-child{margin:0;color:#62746d;font-size:12px;text-align:right}
+.activity-guide-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}
+.activity-guide-card{--guide-color:#eabbb1;display:grid;grid-template-columns:minmax(130px,.82fr) minmax(0,1fr);align-items:center;gap:14px;padding:14px;border:1px solid rgba(52,78,67,.16);border-top:4px solid var(--guide-color);border-radius:14px;background:rgba(255,255,255,.56);color:#283a34}
+.activity-guide-door{--guide-color:#ec9ca4}
+.activity-guide-image{min-width:0;margin:0}
+.activity-guide-image img{display:block;width:100%;aspect-ratio:4/3;object-fit:cover;border-radius:10px;background:#e7e4d8}
+.activity-guide-image figcaption{margin-top:5px;color:#62746d;font-size:10px;line-height:1.25;text-align:center}
+.activity-guide-copy{min-width:0}
+.activity-guide-kicker{margin:0 0 3px;color:#71877d;font-size:10px;font-weight:800;letter-spacing:.14em}
+.activity-guide-copy h3{margin:0 0 9px;color:#273a34;font-size:clamp(17px,1.8vw,22px);line-height:1.08}
+.activity-guide-instruction{margin-top:8px;font-size:12px;line-height:1.35}
+.activity-guide-instruction strong{display:block;margin-bottom:2px}
+.activity-guide-instruction p{margin:0}
+.activity-guide-instruction.safety{padding:8px 9px;border-left:3px solid #d7a656;border-radius:0 7px 7px 0;background:#f8f2df}
+@media(max-width:850px){.activity-guide-card{grid-template-columns:minmax(110px,.72fr) minmax(0,1fr);gap:10px;padding:11px}.activity-guide-instruction{font-size:11px}}
+@media(max-width:700px){.activity-guides{grid-row:4;margin-top:6px}.activity-guides-heading{grid-template-columns:1fr;gap:3px}.activity-guides-heading>p:last-child{text-align:left}.activity-guide-grid{grid-template-columns:1fr;gap:10px}.activity-guide-card{grid-template-columns:minmax(105px,.62fr) minmax(0,1fr);gap:12px;padding:12px}.activity-guide-copy h3{font-size:19px}}
+@media(max-width:380px){.activity-guide-card{grid-template-columns:1fr}.activity-guide-image img{aspect-ratio:16/8}.activity-guide-copy h3{font-size:18px}}
+
