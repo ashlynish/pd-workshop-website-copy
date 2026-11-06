@@ -224,7 +224,7 @@ html,body{height:auto;min-height:100%;overflow-x:hidden;overflow-y:auto}
 @media(max-width:700px){.activity-guide-wc-group,.activity-guide-look-group,.activity-guide-ramp-group{padding:12px}.wc-guide-step>summary{grid-template-columns:78px minmax(0,1fr) 22px;gap:7px;padding:7px 9px}.wc-step-title{font-size:13px}.wc-step-content{grid-template-columns:minmax(105px,.62fr) minmax(0,1fr);gap:10px;padding:10px}.ramp-guide-content{grid-template-columns:minmax(105px,.62fr) minmax(0,1fr)}.wc-step-content .activity-guide-instruction{font-size:11px}}
 @media(max-width:380px){.wc-step-content{grid-template-columns:1fr}.wc-step-content .activity-guide-image img{aspect-ratio:16/8}}
 
-/* Coordinate based station layout; coordinates are normalized from the supplied reference while preserving their relative spacing. */
+/* Coordinate based station layout with placements refined from the marked positions. */
 .page{grid-template-columns:minmax(0,1fr);grid-template-rows:auto auto auto auto;align-content:start;gap:16px 0}
 .header{grid-column:1/-1;grid-row:1}
 .map{grid-column:1/-1;grid-row:2;justify-self:center;align-self:start;position:relative;width:min(100%,760px);height:auto;min-height:0;max-height:none;aspect-ratio:1.53;margin:0 auto;transform:none;border-radius:16px;background:#f8f7ef;border:1px solid rgba(52,78,67,.18);overflow:hidden;box-shadow:inset 0 0 0 1px rgba(255,255,255,.7)}
