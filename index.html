@@ -43,9 +43,9 @@ html,body{height:auto;min-height:100%;overflow-x:hidden;overflow-y:auto}
     <li><button class="sequence-step" data-circle="c-door"><span class="step-number">2</span><span class="step-copy"><strong>Open the door</strong></span><span class="step-arrow" aria-hidden="true">›</span></button></li>
     <li><button class="sequence-step" data-guide-target="activity3Guide"><span class="step-number">3</span><span class="step-copy"><strong>Look up and down</strong></span><span class="step-arrow" aria-hidden="true">›</span></button></li>
     <li class="sequence-group"><button class="sequence-group-label sequence-group-button sequence-step" type="button" data-guide-target="activity4Guide" aria-controls="activity4Guide"><span class="step-number">4</span><strong>Go around the ramps</strong><span class="step-arrow" aria-hidden="true">›</span></button><ol class="substeps">
-      <li><button class="sequence-step sequence-substep" data-guide-target="activity4Guide"><span class="step-number">4a</span><span class="step-copy"><strong>Go up curve ramp</strong></span><span class="step-arrow" aria-hidden="true">›</span></button></li>
-      <li><button class="sequence-step sequence-substep" data-guide-target="activity4Guide"><span class="step-number">4b</span><span class="step-copy"><strong>Go to next ramp</strong></span><span class="step-arrow" aria-hidden="true">›</span></button></li>
-      <li><button class="sequence-step sequence-substep" data-guide-target="activity4Guide"><span class="step-number">4c</span><span class="step-copy"><strong>Go down straight ramp</strong></span><span class="step-arrow" aria-hidden="true">›</span></button></li>
+      <li><button class="sequence-step sequence-substep" data-guide-target="activity4Guide" data-guide-step="0"><span class="step-number">4a</span><span class="step-copy"><strong>Go up curve ramp</strong></span><span class="step-arrow" aria-hidden="true">›</span></button></li>
+      <li><button class="sequence-step sequence-substep" data-guide-target="activity4Guide" data-guide-step="1"><span class="step-number">4b</span><span class="step-copy"><strong>Go to next ramp</strong></span><span class="step-arrow" aria-hidden="true">›</span></button></li>
+      <li><button class="sequence-step sequence-substep" data-guide-target="activity4Guide" data-guide-step="2"><span class="step-number">4c</span><span class="step-copy"><strong>Go down straight ramp</strong></span><span class="step-arrow" aria-hidden="true">›</span></button></li>
     </ol></li>
     <li><button class="sequence-step" data-circle="c-calm"><span class="step-number">5</span><span class="step-copy"><strong>Circle at Calm Zone</strong></span><span class="step-arrow" aria-hidden="true">›</span></button></li>
     <li class="sequence-group"><div class="sequence-group-label"><span class="step-number step-number-wc">6</span><strong>WC toilet</strong></div><ol class="substeps">
@@ -95,11 +95,21 @@ html,body{height:auto;min-height:100%;overflow-x:hidden;overflow-y:auto}
         <div class="activity-guide-instruction safety"><strong>Safety prompt</strong><p>[Add approved instructions for safe stopping and looking around.]</p></div>
       </div>
     </article>
-    <article class="activity-guide-card activity-guide-letter activity-guide-route-ramps" id="activity4Guide">
-      <div class="activity-guide-copy"><p class="activity-guide-kicker">ACTIVITY 4</p><h3>Go around the ramps</h3>
-        <div class="activity-guide-instruction"><strong>Guide the activity</strong><p>Guide the participant through the ramp route in order: go up the curve ramp, move to the next ramp, then go down the straight ramp.</p></div>
-        <div class="activity-guide-instruction"><strong>Ask them to notice</strong><p>Notice the surface, slope, effort, and control across the ramp route.</p></div>
-        <div class="activity-guide-instruction safety"><strong>Safety prompt</strong><p>[Add the approved ramp approach, assistance, and stop condition.]</p></div>
+    <article class="activity-guide-card activity-guide-ramp-group" id="activity4Guide">
+      <div class="activity-guide-copy wc-group-heading"><p class="activity-guide-kicker">ACTIVITY 4</p><h3>Go around the ramps</h3><p>Follow the steps in order. Tap a step to open its guide.</p></div>
+      <div class="wc-guide-steps guide-steps ramp-guide-steps">
+        <details class="wc-guide-step guide-accordion-step ramp-guide-step" id="activity4a" open>
+          <summary><span class="activity-guide-kicker">ACTIVITY 4a</span><span class="wc-step-title">Go up curve ramp</span><span class="wc-step-toggle" aria-hidden="true"></span></summary>
+          <div class="wc-step-content ramp-guide-content"><div class="activity-guide-copy"><div class="activity-guide-instruction"><strong>Guide the activity</strong><p>Guide the participant up the curve ramp.</p></div><div class="activity-guide-instruction"><strong>Ask them to notice</strong><p>Notice the slope, surface, effort, and control on the curve ramp.</p></div><div class="activity-guide-instruction safety"><strong>Safety prompt</strong><p>[Add the approved ramp approach, assistance, and stop condition.]</p></div></div></div>
+        </details>
+        <details class="wc-guide-step guide-accordion-step ramp-guide-step" id="activity4b">
+          <summary><span class="activity-guide-kicker">ACTIVITY 4b</span><span class="wc-step-title">Go to next ramp</span><span class="wc-step-toggle" aria-hidden="true"></span></summary>
+          <div class="wc-step-content ramp-guide-content"><div class="activity-guide-copy"><div class="activity-guide-instruction"><strong>Guide the activity</strong><p>Guide the participant from the curve ramp to the next ramp.</p></div><div class="activity-guide-instruction"><strong>Ask them to notice</strong><p>Notice the transition, route, and space needed between ramps.</p></div><div class="activity-guide-instruction safety"><strong>Safety prompt</strong><p>[Add the approved ramp approach, assistance, and stop condition.]</p></div></div></div>
+        </details>
+        <details class="wc-guide-step guide-accordion-step ramp-guide-step" id="activity4c">
+          <summary><span class="activity-guide-kicker">ACTIVITY 4c</span><span class="wc-step-title">Go down straight ramp</span><span class="wc-step-toggle" aria-hidden="true"></span></summary>
+          <div class="wc-step-content ramp-guide-content"><div class="activity-guide-copy"><div class="activity-guide-instruction"><strong>Guide the activity</strong><p>Guide the participant down the straight ramp.</p></div><div class="activity-guide-instruction"><strong>Ask them to notice</strong><p>Notice the slope, surface, effort, and control while going down.</p></div><div class="activity-guide-instruction safety"><strong>Safety prompt</strong><p>[Add the approved ramp approach, assistance, and stop condition.]</p></div></div></div>
+        </details>
       </div>
     </article>
     <article class="activity-guide-card activity-guide-calm">
@@ -112,24 +122,24 @@ html,body{height:auto;min-height:100%;overflow-x:hidden;overflow-y:auto}
     </article>
     <article class="activity-guide-card activity-guide-wc-group">
       <div class="activity-guide-copy wc-group-heading"><p class="activity-guide-kicker">ACTIVITY 6</p><h3>WC toilet</h3><p>Follow the steps in order. Tap a step to open its guide.</p></div>
-      <div class="wc-guide-steps">
-        <details class="wc-guide-step" open>
+      <div class="wc-guide-steps guide-steps">
+        <details class="wc-guide-step guide-accordion-step" open>
           <summary><span class="activity-guide-kicker">ACTIVITY 6a</span><span class="wc-step-title">Go to the WC toilet</span><span class="wc-step-toggle" aria-hidden="true"></span></summary>
           <div class="wc-step-content"><figure class="activity-guide-image"><img src="assets/activity-images/activity-4a-find-wc.jpg" alt="Wheelchair user approaching the accessible WC"><figcaption>Finding the WC</figcaption></figure><div class="activity-guide-copy"><div class="activity-guide-instruction"><strong>Guide the activity</strong><p>Guide the participant to the WC toilet.</p></div><div class="activity-guide-instruction"><strong>Ask them to notice</strong><p>Notice the route, turning space, and approach.</p></div><div class="activity-guide-instruction safety"><strong>Safety prompt</strong><p>[Add approved route and safety instructions.]</p></div></div></div>
         </details>
-        <details class="wc-guide-step">
+        <details class="wc-guide-step guide-accordion-step">
           <summary><span class="activity-guide-kicker">ACTIVITY 6b</span><span class="wc-step-title">Open and close the door</span><span class="wc-step-toggle" aria-hidden="true"></span></summary>
           <div class="wc-step-content"><figure class="activity-guide-image"><img src="assets/activity-images/activity-4b-wc-door.jpg" alt="Wheelchair user reaching for the accessible WC door control"><figcaption>Opening and closing the WC door</figcaption></figure><div class="activity-guide-copy"><div class="activity-guide-instruction"><strong>Guide the activity</strong><p>Guide the participant through opening and closing the door.</p></div><div class="activity-guide-instruction"><strong>Ask them to notice</strong><p>Notice reach, force, clearance, and positioning.</p></div><div class="activity-guide-instruction safety"><strong>Safety prompt</strong><p>[Add approved door and body-use instructions.]</p></div></div></div>
         </details>
-        <details class="wc-guide-step">
+        <details class="wc-guide-step guide-accordion-step">
           <summary><span class="activity-guide-kicker">ACTIVITY 6c</span><span class="wc-step-title">Get on the toilet</span><span class="wc-step-toggle" aria-hidden="true"></span></summary>
           <div class="wc-step-content"><figure class="activity-guide-image"><img src="assets/activity-images/activity-4c-on-toilet.jpg" alt="Wheelchair user holding a support rail during the toilet transfer activity"><figcaption>Transfer to the toilet</figcaption></figure><div class="activity-guide-copy"><div class="activity-guide-instruction"><strong>Guide the activity</strong><p>Follow the approved activity setup for this transfer step.</p></div><div class="activity-guide-instruction"><strong>Ask them to notice</strong><p>Notice the space, positioning, and movements involved.</p></div><div class="activity-guide-instruction safety"><strong>Safety prompt</strong><p>[Insert approved transfer method, permitted body parts, support, and stop condition.]</p></div></div></div>
         </details>
-        <details class="wc-guide-step">
+        <details class="wc-guide-step guide-accordion-step">
           <summary><span class="activity-guide-kicker">ACTIVITY 6d</span><span class="wc-step-title">Get back on the wheelchair</span><span class="wc-step-toggle" aria-hidden="true"></span></summary>
           <div class="wc-step-content"><figure class="activity-guide-image"><img src="assets/activity-images/activity-4d-back-to-chair.jpg" alt="Wheelchair user using support rails beside the wheelchair"><figcaption>Returning to the wheelchair</figcaption></figure><div class="activity-guide-copy"><div class="activity-guide-instruction"><strong>Guide the activity</strong><p>Follow the approved return-transfer instructions.</p></div><div class="activity-guide-instruction"><strong>Ask them to notice</strong><p>Notice what the return movement requires.</p></div><div class="activity-guide-instruction safety"><strong>Safety prompt</strong><p>[Insert approved method, support, and stop condition.]</p></div></div></div>
         </details>
-        <details class="wc-guide-step">
+        <details class="wc-guide-step guide-accordion-step">
           <summary><span class="activity-guide-kicker">ACTIVITY 6e</span><span class="wc-step-title">Open the door and leave</span><span class="wc-step-toggle" aria-hidden="true"></span></summary>
           <div class="wc-step-content"><figure class="activity-guide-image"><img src="assets/activity-images/activity-4e-leave-wc.jpg" alt="Wheelchair user reaching toward the WC door release control"><figcaption>Leaving the WC</figcaption></figure><div class="activity-guide-copy"><div class="activity-guide-instruction"><strong>Guide the activity</strong><p>Guide the participant to open the door and leave the toilet area.</p></div><div class="activity-guide-instruction"><strong>Ask them to notice</strong><p>Notice door operation and moving through the doorway.</p></div><div class="activity-guide-instruction safety"><strong>Safety prompt</strong><p>[Add approved route and safety instructions.]</p></div></div></div>
         </details>
@@ -215,7 +225,7 @@ html,body{height:auto;min-height:100%;overflow-x:hidden;overflow-y:auto}
 <script>
 (()=>{
 const modal=document.getElementById('focusCircle'), backdrop=document.getElementById('focusBackdrop'), page=document.querySelector('.page');
-const wcGuideSteps=[...document.querySelectorAll('.wc-guide-step')];wcGuideSteps.forEach(step=>step.addEventListener('toggle',()=>{if(step.open)wcGuideSteps.forEach(other=>{if(other!==step)other.open=false})}));
+document.querySelectorAll('.guide-steps').forEach(group=>{const steps=[...group.querySelectorAll('.guide-accordion-step')];steps.forEach(step=>step.addEventListener('toggle',()=>{if(step.open)steps.forEach(other=>{if(other!==step)other.open=false})}))});
 const stackTab=document.getElementById('stackTab');let wcStep=0;const title=document.getElementById('focusTitle'), kicker=document.getElementById('focusKicker'), guide=document.getElementById('focusGuide'), notice=document.getElementById('focusNotice'), safety=document.getElementById('focusSafety'), figure=modal.querySelector('.focus-image'), still=figure.querySelector('.activity-still'), imagePlaceholder=figure.querySelector('.image-placeholder');
 function setImage(item){const data=typeof item==='string'?{src:item}:item;const src=data?.src||'';still.src=src;still.alt=data?.alt||'';still.hidden=!src;imagePlaceholder.hidden=!!src;figure.hidden=false;figure.querySelector('figcaption').textContent=data?.caption||'Activity image';}
 const content={
@@ -244,7 +254,7 @@ const emergencyDialog=document.getElementById('emergencyDialog'),callDialog=docu
     tab.dispatchEvent(new MouseEvent('click',{bubbles:true,clientX:r.right+12,clientY:r.top+r.height*.605}));
   };
   rows.forEach(row=>row.addEventListener('click',()=>{
-    if(row.dataset.guideTarget){document.getElementById(row.dataset.guideTarget)?.scrollIntoView({behavior:'smooth',block:'start'});return;}
+    if(row.dataset.guideTarget){const target=document.getElementById(row.dataset.guideTarget);if(row.dataset.guideStep!==undefined){const step=target?.querySelectorAll('.ramp-guide-step')[Number(row.dataset.guideStep)];if(step){step.open=true;step.scrollIntoView({behavior:'smooth',block:'start')}}}else target?.scrollIntoView({behavior:'smooth',block:'start'});return;}
     const circle=document.querySelector('.map .'+row.dataset.circle);
     if(!circle)return;
     if(row.dataset.wcStep!==undefined){
