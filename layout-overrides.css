@@ -181,6 +181,11 @@ html,body{height:auto;min-height:100%;overflow-x:hidden;overflow-y:auto}
 .activity-guide-wc{--guide-color:#b8d9e8}
 .activity-guide-drink{--guide-color:#eacc98}
 .activity-guide-park{--guide-color:#aacfc5}
+.sequence-group-label.sequence-group-button{width:100%;min-height:0;height:auto;padding:0 2px 6px;border:0;border-radius:0;background:transparent;box-shadow:none;color:inherit;font:inherit;cursor:pointer;display:flex;align-items:center;text-align:left;gap:9px}
+.sequence-group-label.sequence-group-button:hover{background:transparent;border-color:transparent}
+.sequence-group-label.sequence-group-button:active{transform:none}
+.sequence-group-label.sequence-group-button:focus-visible{outline:2px solid #417f70;outline-offset:2px;border-radius:6px}
+.sequence-group-button .step-arrow{margin-left:auto;font-size:20px}
 .activity-guide-image{min-width:0;margin:0}
 .activity-guide-image img{display:block;width:100%;aspect-ratio:4/3;object-fit:cover;border-radius:10px;background:#e7e4d8}
 .activity-guide-image figcaption{margin-top:5px;color:#62746d;font-size:10px;line-height:1.25;text-align:center}
