@@ -202,7 +202,7 @@ html,body{height:auto;min-height:100%;overflow-x:hidden;overflow-y:auto}
 
 /* WC activity steps stay in order and expand in place. */
 .activity-guide-wc-group{grid-column:1/-1;display:block;padding:14px;--guide-color:#b8d9e8}
-.activity-guide-ramp-group{grid-column:1/-1;display:block;padding:14px;--guide-color:#eabbb1}
+.activity-guide-ramp-group{grid-column:1/-1;display:grid;grid-template-columns:minmax(0,1fr);align-items:stretch;gap:10px;padding:14px;--guide-color:#eabbb1}
 .wc-group-heading{margin:0 0 10px}
 .wc-group-heading>p:last-child{margin:4px 0 0;color:#62746d;font-size:12px}
 .wc-guide-steps{display:grid;gap:7px}
