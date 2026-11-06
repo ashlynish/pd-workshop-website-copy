@@ -241,3 +241,6 @@ html,body{height:auto;min-height:100%;overflow-x:hidden;overflow-y:auto}
 @media(max-width:700px){.page{grid-template-columns:minmax(0,1fr);grid-template-rows:auto auto auto auto;gap:10px 0}.header{grid-column:1/-1;grid-row:1;min-height:122px}.map{grid-column:1/-1;grid-row:2;width:min(100%,760px);height:auto;min-height:0;aspect-ratio:1.53}.map .circle{width:clamp(35px,7vw,44px);height:auto;min-width:0;min-height:0;padding:3px}.map .circle span{font-size:7px;line-height:1.02}.map .circle span small{font-size:9px}.map-side-note{grid-row:3}.map-hint{font-size:10px}.activity-guides{grid-row:4;margin-top:2px}}
 @media(max-width:380px){.header{min-height:116px}.map .circle{width:34px}.map .circle span{font-size:6.5px}}
 
+.map-route{display:none}
+
+
