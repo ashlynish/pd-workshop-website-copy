@@ -202,6 +202,7 @@ html,body{height:auto;min-height:100%;overflow-x:hidden;overflow-y:auto}
 
 /* WC activity steps stay in order and expand in place. */
 .activity-guide-wc-group{grid-column:1/-1;display:block;padding:14px;--guide-color:#b8d9e8}
+.activity-guide-ramp-group{grid-column:1/-1;display:block;padding:14px;--guide-color:#eabbb1}
 .wc-group-heading{margin:0 0 10px}
 .wc-group-heading>p:last-child{margin:4px 0 0;color:#62746d;font-size:12px}
 .wc-guide-steps{display:grid;gap:7px}
@@ -216,7 +217,9 @@ html,body{height:auto;min-height:100%;overflow-x:hidden;overflow-y:auto}
 .wc-guide-step[open]>summary{border-bottom:1px solid rgba(52,78,67,.12);background:#f4f8f8}
 .wc-guide-step[open] .wc-step-toggle::after{display:none}
 .wc-step-content{display:grid;grid-template-columns:minmax(160px,.72fr) minmax(0,1fr);align-items:center;gap:14px;padding:12px}
+.ramp-guide-content{grid-template-columns:minmax(0,1fr)}
+.ramp-guide-step>summary .activity-guide-kicker{color:#80584f}
 .wc-step-content .activity-guide-instruction:first-child{margin-top:0}
-@media(max-width:700px){.activity-guide-wc-group{padding:12px}.wc-guide-step>summary{grid-template-columns:78px minmax(0,1fr) 22px;gap:7px;padding:7px 9px}.wc-step-title{font-size:13px}.wc-step-content{grid-template-columns:minmax(105px,.62fr) minmax(0,1fr);gap:10px;padding:10px}.wc-step-content .activity-guide-instruction{font-size:11px}}
+@media(max-width:700px){.activity-guide-wc-group,.activity-guide-ramp-group{padding:12px}.wc-guide-step>summary{grid-template-columns:78px minmax(0,1fr) 22px;gap:7px;padding:7px 9px}.wc-step-title{font-size:13px}.wc-step-content{grid-template-columns:minmax(105px,.62fr) minmax(0,1fr);gap:10px;padding:10px}.ramp-guide-content{grid-template-columns:minmax(0,1fr)}.wc-step-content .activity-guide-instruction{font-size:11px}}
 @media(max-width:380px){.wc-step-content{grid-template-columns:1fr}.wc-step-content .activity-guide-image img{aspect-ratio:16/8}}
 
