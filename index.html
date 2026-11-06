@@ -206,7 +206,6 @@ html,body{height:auto;min-height:100%;overflow-x:hidden;overflow-y:auto}
 <script>
 (()=>{
 const modal=document.getElementById('focusCircle'), backdrop=document.getElementById('focusBackdrop'), page=document.querySelector('.page');
-document.querySelectorAll('.guide-steps').forEach(group=>{const steps=[...group.querySelectorAll('.guide-accordion-step')];steps.forEach(step=>step.addEventListener('toggle',()=>{if(step.open)steps.forEach(other=>{if(other!==step)other.open=false})}))});
 const stackTab=document.getElementById('stackTab');let wcStep=0;const title=document.getElementById('focusTitle'), kicker=document.getElementById('focusKicker'), guide=document.getElementById('focusGuide'), notice=document.getElementById('focusNotice'), safety=document.getElementById('focusSafety'), figure=modal.querySelector('.focus-image'), still=figure.querySelector('.activity-still'), imagePlaceholder=figure.querySelector('.image-placeholder');
 function setImage(item){const data=typeof item==='string'?{src:item}:item;const src=data?.src||'';still.src=src;still.alt=data?.alt||'';still.hidden=!src;imagePlaceholder.hidden=!!src;figure.hidden=false;figure.querySelector('figcaption').textContent=data?.caption||'Activity image';}
 const content={
