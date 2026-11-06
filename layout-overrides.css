@@ -84,12 +84,12 @@ html,body{height:auto;min-height:100%;overflow-x:hidden;overflow-y:auto}
 @media(max-width:380px){.header-actions{gap:4px}.helper-action{padding:5px 6px;font-size:9px}.helper-action span{width:17px;height:17px}}
 
 /* Refine the local helper layout: compact route buttons, quick guide access, and map hint. */
-.page{position:relative;grid-template-rows:172px auto auto}
+.page{position:relative;grid-template-rows:200px auto auto}
 .header-actions{flex-wrap:nowrap;gap:6px;margin-top:0;align-self:flex-start;white-space:nowrap}
 .helper-action{min-height:38px;padding:7px 9px;font-size:11px;gap:5px}
 .guide-action{border-color:#d0aa4c;background:#f4e7b9;color:#59471e}
 .guide-action span{background:#c69b35;color:#fff}
-.map-side-note{position:static;display:block;grid-column:1/-1;grid-row:3;align-self:end;min-height:0}
+.map{grid-row:1}.map-side-note{position:static;display:block;grid-column:1/-1;grid-row:2;align-self:end;min-height:0}
 .map-side-note .notice{margin-left:auto}
 .map-hint{position:absolute;top:146px;right:24px;width:128px;text-align:center;font-size:10px;line-height:1.25}
 .sequence-list{gap:7px}
@@ -112,7 +112,7 @@ html,body{height:auto;min-height:100%;overflow-x:hidden;overflow-y:auto}
   .helper-action{min-height:34px;padding:6px 8px;gap:4px;font-size:10px}
   .helper-action span{width:19px;height:19px;font-size:12px}
   .map-hint{top:calc(env(safe-area-inset-top) + 9px + clamp(102px,26vw,122px) + 4px);right:12px;width:clamp(102px,26vw,122px);font-size:9px}
-  .map-side-note{grid-row:3}
+  .map-side-note{grid-row:2}
   .sequence-list{gap:6px}
   .sequence-list>li>.sequence-step,.sequence-group .sequence-step.sequence-substep{height:44px;min-height:44px;padding:5px 8px}
   .step-number,.sequence-substep .step-number{width:28px;height:28px;flex-basis:28px}
@@ -165,7 +165,7 @@ html,body{height:auto;min-height:100%;overflow-x:hidden;overflow-y:auto}
 .header-action-row{display:flex;align-items:flex-start;gap:6px}
 
 /* Main-page activity guides complement the route and map overview. */
-.activity-guides{grid-column:1/-1;grid-row:4;min-width:0;margin:10px 0 22px}
+.activity-guides{grid-column:1/-1;grid-row:3;min-width:0;margin:10px 0 22px}
 .activity-guides-heading{display:grid;grid-template-columns:auto 1fr;align-items:baseline;gap:4px 12px;margin-bottom:12px}
 .activity-guides-heading .sequence-eyebrow{grid-column:1/-1;margin:0}
 .activity-guides-heading h2{margin:0;color:#273a34;font-size:clamp(21px,2.5vw,28px)}
@@ -197,7 +197,7 @@ html,body{height:auto;min-height:100%;overflow-x:hidden;overflow-y:auto}
 .activity-guide-instruction p{margin:0}
 .activity-guide-instruction.safety{padding:8px 9px;border-left:3px solid #d7a656;border-radius:0 7px 7px 0;background:#f8f2df}
 @media(max-width:850px){.activity-guide-card{grid-template-columns:minmax(110px,.72fr) minmax(0,1fr);gap:10px;padding:11px}.activity-guide-instruction{font-size:11px}}
-@media(max-width:700px){.activity-guides{grid-row:4;margin-top:6px}.activity-guides-heading{grid-template-columns:1fr;gap:3px}.activity-guides-heading>p:last-child{text-align:left}.activity-guide-grid{grid-template-columns:1fr;gap:10px}.activity-guide-card{grid-template-columns:minmax(105px,.62fr) minmax(0,1fr);gap:12px;padding:12px}.activity-guide-copy h3{font-size:19px}}
+@media(max-width:700px){.activity-guides{grid-row:3;margin-top:6px}.activity-guides-heading{grid-template-columns:1fr;gap:3px}.activity-guides-heading>p:last-child{text-align:left}.activity-guide-grid{grid-template-columns:1fr;gap:10px}.activity-guide-card{grid-template-columns:minmax(105px,.62fr) minmax(0,1fr);gap:12px;padding:12px}.activity-guide-copy h3{font-size:19px}}
 @media(max-width:380px){.activity-guide-card{grid-template-columns:1fr}.activity-guide-image img{aspect-ratio:16/8}.activity-guide-copy h3{font-size:18px}}
 
 /* WC activity steps stay in order and expand in place. */
