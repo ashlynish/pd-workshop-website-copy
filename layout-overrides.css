@@ -163,8 +163,3 @@ html,body{height:auto;min-height:100%;overflow-x:hidden;overflow-y:auto}
 /* Place feedback directly under Precaution. */
 .header-actions{flex-direction:column;align-items:flex-start;gap:6px}
 .header-action-row{display:flex;align-items:flex-start;gap:6px}
-
-/* Keep the two action rows aligned with equally sized buttons. */
-.header-action-row{width:min(320px,calc(100vw - 24px))}
-.header-action-row .helper-action{flex:1 1 0;min-width:0;height:38px;min-height:38px}
-@media(max-width:700px){.header-action-row .helper-action{height:34px;min-height:34px}}
