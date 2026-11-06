@@ -173,6 +173,10 @@ html,body{height:auto;min-height:100%;overflow-x:hidden;overflow-y:auto}
 .activity-guide-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}
 .activity-guide-card{--guide-color:#eabbb1;display:grid;grid-template-columns:minmax(130px,.82fr) minmax(0,1fr);align-items:center;gap:14px;padding:14px;border:1px solid rgba(52,78,67,.16);border-top:4px solid var(--guide-color);border-radius:14px;background:rgba(255,255,255,.56);color:#283a34}
 .activity-guide-door{--guide-color:#ec9ca4}
+.activity-guide-look{--guide-color:#d8eef8}
+.activity-guide-route-ramps{--guide-color:#eabbb1}
+.activity-guide-letter{display:block;align-self:start;min-height:100%}
+.activity-guide-letter .activity-guide-copy{max-width:760px}
 .activity-guide-calm{--guide-color:#c8cec6}
 .activity-guide-wc{--guide-color:#b8d9e8}
 .activity-guide-drink{--guide-color:#eacc98}
