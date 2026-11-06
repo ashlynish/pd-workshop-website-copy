@@ -159,3 +159,7 @@ html,body{height:auto;min-height:100%;overflow-x:hidden;overflow-y:auto}
 }
 @media(max-width:380px){.header-tools{top:calc(env(safe-area-inset-top) + 42px);width:calc(100vw - 18px)}}
 
+
+/* Place feedback directly under Precaution. */
+.header-actions{align-items:flex-start}
+.precaution-group{display:flex;flex:0 0 auto;flex-direction:column;align-items:flex-start;gap:6px}
