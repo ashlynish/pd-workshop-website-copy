@@ -334,3 +334,42 @@ html,body{height:auto;min-height:100%;overflow-x:hidden;overflow-y:auto}
 .image-lightbox-close{position:absolute;top:9px;right:9px;width:36px;height:36px;border:0;border-radius:50%;background:#e7e8de;color:#283a34;font-size:24px;line-height:1;cursor:pointer}
 .image-lightbox-close:focus-visible{outline:3px solid #417f70;outline-offset:2px}
 @media(max-width:700px){.image-lightbox{width:calc(100vw - 24px);height:88svh;padding:40px 10px 12px}.image-lightbox figure img{max-width:100%;max-height:calc(88svh - 88px)}}
+
+
+/* Expanding activity guide gallery. */
+.activity-guide-grid{display:flex;flex-flow:row nowrap;align-items:stretch;gap:8px;height:min(76svh,720px);min-height:480px;overflow-x:auto;overflow-y:hidden;padding:0 0 8px;scrollbar-width:thin;overscroll-behavior-x:contain;scroll-snap-type:x proximity}
+.activity-guide-card[data-guide-accordion]{box-sizing:border-box;display:flex;flex:0 0 56px;flex-direction:column;grid-column:auto;min-width:56px;max-width:none;min-height:0;height:100%;padding:0;overflow:hidden;scroll-snap-align:start;transition:flex-basis .32s ease}
+.activity-guide-card[data-guide-accordion].is-expanded{flex:1 1 0;min-width:min(370px,45vw)}
+.activity-guide-toggle{position:relative;display:flex;flex:1 1 auto;align-items:center;justify-content:center;gap:8px;width:100%;min-height:0;padding:12px 8px;border:0;border-radius:0;background:transparent;color:#283a34;font:inherit;text-align:left;cursor:pointer}
+.activity-guide-toggle:focus-visible{outline:3px solid #417f70;outline-offset:-4px}
+.activity-guide-toggle-number{color:#71877d;font-size:11px;font-weight:800;letter-spacing:.12em;text-transform:uppercase}
+.activity-guide-toggle-title{font-size:14px;font-weight:700;line-height:1.2}
+.activity-guide-toggle-icon{display:grid;place-items:center;flex:0 0 28px;width:28px;height:28px;border-radius:50%;background:rgba(255,255,255,.6);color:#52796e;font-size:22px;line-height:1}
+.activity-guide-toggle-icon::before{content:"+"}
+.activity-guide-card.is-expanded>.activity-guide-toggle{flex:0 0 54px;justify-content:flex-start;padding:10px 14px;border-bottom:1px solid rgba(52,78,67,.14);background:rgba(255,255,255,.38)}
+.activity-guide-card.is-expanded>.activity-guide-toggle .activity-guide-toggle-icon{margin-left:auto}
+.activity-guide-card.is-expanded>.activity-guide-toggle .activity-guide-toggle-icon::before{content:"−"}
+.activity-guide-card:not(.is-expanded)>.activity-guide-toggle{writing-mode:vertical-rl;transform:rotate(180deg)}
+.activity-guide-card:not(.is-expanded)>.activity-guide-toggle .activity-guide-toggle-number{font-size:10px}
+.activity-guide-card:not(.is-expanded)>.activity-guide-toggle .activity-guide-toggle-title{font-size:12px}
+.activity-guide-card:not(.is-expanded)>.activity-guide-toggle .activity-guide-toggle-icon{flex:0 0 24px;width:24px;height:24px;font-size:18px}
+.activity-guide-panel{display:grid;flex:1 1 auto;grid-template-columns:minmax(145px,.72fr) minmax(0,1fr);align-items:center;gap:14px;min-width:0;min-height:0;padding:14px;overflow:auto}
+.activity-guide-card[data-guide-layout="steps"]>.activity-guide-panel{display:block}
+.activity-guide-card[data-guide-layout="steps"] .wc-group-heading{margin:0 0 10px}
+.activity-guide-card[data-guide-layout="steps"] .wc-guide-steps{min-width:0}
+.activity-guide-card[data-guide-accordion] .activity-guide-copy h3{font-size:clamp(17px,1.5vw,21px)}
+.activity-guide-card[data-guide-accordion] .activity-guide-instruction{font-size:12px}
+.activity-guide-panel[hidden]{display:none!important}
+@media(max-width:700px){
+  .activity-guide-grid{display:flex;flex-direction:column;height:auto;min-height:0;overflow:visible;gap:8px;padding:0}
+  .activity-guide-card[data-guide-accordion],.activity-guide-card[data-guide-accordion].is-expanded{flex:0 0 auto;width:100%;min-width:0;height:auto;min-height:0}
+  .activity-guide-card:not(.is-expanded)>.activity-guide-toggle,.activity-guide-card.is-expanded>.activity-guide-toggle{writing-mode:initial;transform:none;flex:0 0 auto;min-height:56px;justify-content:flex-start;padding:9px 12px}
+  .activity-guide-card:not(.is-expanded)>.activity-guide-toggle .activity-guide-toggle-number,.activity-guide-card.is-expanded>.activity-guide-toggle .activity-guide-toggle-number{min-width:82px;font-size:10px}
+  .activity-guide-card:not(.is-expanded)>.activity-guide-toggle .activity-guide-toggle-title,.activity-guide-card.is-expanded>.activity-guide-toggle .activity-guide-toggle-title{flex:1;font-size:14px}
+  .activity-guide-card:not(.is-expanded)>.activity-guide-toggle .activity-guide-toggle-icon,.activity-guide-card.is-expanded>.activity-guide-toggle .activity-guide-toggle-icon{flex:0 0 26px;width:26px;height:26px}
+  .activity-guide-panel{grid-template-columns:minmax(120px,.62fr) minmax(0,1fr);gap:12px;padding:12px}
+}
+@media(max-width:380px){
+  .activity-guide-panel{grid-template-columns:1fr}
+  .activity-guide-card:not(.is-expanded)>.activity-guide-toggle .activity-guide-toggle-number,.activity-guide-card.is-expanded>.activity-guide-toggle .activity-guide-toggle-number{min-width:70px}
+}
