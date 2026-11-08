@@ -456,3 +456,56 @@ html,body{height:auto;min-height:100%;overflow-x:hidden;overflow-y:auto}
 @media(max-width:380px){
   .activity-guide-card[data-guide-accordion].is-expanded{flex-basis:min(68vw,520px);min-width:min(68vw,520px)}
 }
+
+
+/* Soft rainbow activity colors, shared by map stations, guide cards, and route labels. */
+:root{
+  --activity-pink:#f3c5d0;
+  --activity-orange:#f8d8b8;
+  --activity-yellow:#f4e8ae;
+  --activity-green:#cfe6ca;
+  --activity-blue:#c9e4f2;
+  --activity-indigo:#d1d2e9;
+  --activity-violet:#dfd1ee;
+  --activity-red:#f2c7c3;
+}
+.map .c-zone{background:var(--activity-pink)}
+.map .c-look{background:var(--activity-orange)}
+.map .c-route-ramps{background:var(--activity-yellow)}
+.map .c-ramp{background:var(--activity-green)}
+.map .c-door{background:var(--activity-blue)}
+.map .c-calm{background:var(--activity-indigo)}
+.map .c-wc{background:var(--activity-violet)}
+.map .c-drink{background:var(--activity-red)}
+.activity-guide-zone-start,.activity-guide-park{--guide-color:var(--activity-pink)}
+.activity-guide-look,.activity-guide-look-group{--guide-color:var(--activity-orange)}
+.activity-guide-route-ramps,.activity-guide-ramp-group{--guide-color:var(--activity-yellow)}
+.activity-guide-ramp{--guide-color:var(--activity-green)}
+.activity-guide-door{--guide-color:var(--activity-blue)}
+.activity-guide-calm{--guide-color:var(--activity-indigo)}
+.activity-guide-wc,.activity-guide-wc-group{--guide-color:var(--activity-violet)}
+.activity-guide-drink{--guide-color:var(--activity-red)}
+.sequence-step[data-circle="c-zone"] .step-number{background:var(--activity-pink);color:#513943}
+.sequence-step[data-circle="c-look"] .step-number{background:var(--activity-orange);color:#59402d}
+.sequence-step[data-circle="c-route-ramps"] .step-number{background:var(--activity-yellow);color:#554a2b}
+.sequence-step[data-circle="c-ramp"] .step-number{background:var(--activity-green);color:#344a32}
+.sequence-step[data-circle="c-door"] .step-number{background:var(--activity-blue);color:#344b5a}
+.sequence-step[data-circle="c-calm"] .step-number{background:var(--activity-indigo);color:#3d4058}
+.sequence-group-label .step-number-wc,.sequence-step[data-circle="c-wc"] .step-number{background:var(--activity-violet);color:#4b3c5a}
+.sequence-step[data-circle="c-drink"] .step-number{background:var(--activity-red);color:#593b39}
+.activity-guide-card.is-expanded>.activity-guide-toggle .activity-guide-toggle-number{background:var(--guide-color,#f3c5d0)}
+#activity1Guide .wc-guide-step{border-color:rgba(196,130,69,.35)}
+#activity1Guide .wc-guide-step>summary,#activity1Guide .wc-guide-step[open]>summary{background:#fff8ef}
+#activity1Guide .wc-guide-step>summary .activity-guide-kicker{color:#946334}
+#activity1Guide .wc-step-toggle{background:#f8d8b8}
+#activity1Guide .wc-step-toggle::before,#activity1Guide .wc-step-toggle::after{background:#79562d}
+#activity2Guide .wc-guide-step{border-color:rgba(185,156,61,.38)}
+#activity2Guide .wc-guide-step>summary,#activity2Guide .wc-guide-step[open]>summary{background:#fffbed}
+#activity2Guide .wc-guide-step>summary .activity-guide-kicker{color:#84702d}
+#activity2Guide .wc-step-toggle{background:#f4e8ae}
+#activity2Guide .wc-step-toggle::before,#activity2Guide .wc-step-toggle::after{background:#6d5b22}
+#activity6Guide .wc-guide-step{border-color:rgba(130,105,158,.34)}
+#activity6Guide .wc-guide-step>summary,#activity6Guide .wc-guide-step[open]>summary{background:#faf6ff}
+#activity6Guide .wc-guide-step>summary .activity-guide-kicker{color:#6d5b86}
+#activity6Guide .wc-step-toggle{background:#dfd1ee}
+#activity6Guide .wc-step-toggle::before,#activity6Guide .wc-step-toggle::after{background:#594a70}
