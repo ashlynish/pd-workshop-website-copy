@@ -351,15 +351,30 @@ window.addEventListener('resize',()=>setValue(value));setValue(0);
     panel.setAttribute('role','region');
     panel.setAttribute('aria-labelledby',toggle.id);
     if(card.querySelector('.wc-group-heading'))card.dataset.guideLayout='steps';
+    if(!card.dataset.guideLayout){
+      const photo=card.querySelector(':scope > .activity-guide-image');
+      const copyBlock=card.querySelector(':scope > .activity-guide-copy');
+      const guideInstruction=copyBlock?.querySelector(':scope > .activity-guide-instruction');
+      if(photo&&copyBlock&&guideInstruction){
+        const intro=document.createElement('div');
+        intro.className='activity-guide-intro';
+        const kicker=copyBlock.querySelector(':scope > .activity-guide-kicker');
+        const heading=copyBlock.querySelector(':scope > h3');
+        if(kicker)intro.append(kicker);
+        if(heading)intro.append(heading);
+        intro.append(guideInstruction);
+        panel.append(intro,photo,copyBlock);
+      }
+    }
     while(card.firstChild)panel.append(card.firstChild);
     panel.hidden=!expanded;
     card.dataset.guideAccordion='';
     card.classList.toggle('is-expanded',expanded);
     card.append(toggle,panel);
     toggle.addEventListener('click',()=>{
-      if(card.classList.contains('is-expanded'))return;
+      const shouldOpen=!card.classList.contains('is-expanded');
       cards.forEach(other=>{
-        const active=other===card;
+        const active=shouldOpen&&other===card;
         other.classList.toggle('is-expanded',active);
         const otherToggle=other.querySelector(':scope > .activity-guide-toggle');
         const otherPanel=other.querySelector(':scope > .activity-guide-panel');
