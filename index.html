@@ -47,7 +47,7 @@ html,body{height:auto;min-height:100%;overflow-x:hidden;overflow-y:auto}
   <div class="circle c-wc" data-guide-target="activity6Guide" style="--x:17.7;--y:31.48" data-reference-x="17.7" data-reference-y="44.5" title="Activity 6 · WC toilet"><span><small>6</small>WC toilet</span></div>
   <div class="circle c-drink" data-guide-target="activity7Guide" style="--x:56.8;--y:52.47" data-reference-x="56.8" data-reference-y="61.5" title="Activity 7 · Order a drink"><span><small>7</small>Order a drink</span></div>
 </section><div class="map-side-note"><p class="map-hint">Tap a station to open its guide</p></div><section class="activity-guides" aria-labelledby="activityGuidesTitle">
-  <div class="activity-guides-heading"><p class="sequence-eyebrow">ACTIVITY GUIDES</p><h2 id="activityGuidesTitle">Activities 0–8</h2><p>Use these guides alongside the workshop route.</p></div>
+  <div class="activity-guides-heading"><h2 id="activityGuidesTitle">Activity Guides</h2><p>Use these guides alongside the workshop route.</p></div>
   <div class="activity-guide-grid">
     <article class="activity-guide-card activity-guide-zone-start" id="activity0Guide" tabindex="-1">
         <figure class="activity-guide-image"><img src="assets/activity-images/activity-0-leave-wc-zone.jpg" alt="Wheelchair users leaving the wheelchair zone"><figcaption>Leaving the wheelchair zone</figcaption></figure>
@@ -169,6 +169,8 @@ html,body{height:auto;min-height:100%;overflow-x:hidden;overflow-y:auto}
   <figure class="focus-image"><img class="activity-still" alt="" hidden><div class="image-placeholder"><span>IMAGE AREA</span><small>Add an activity photo or still here</small></div><figcaption>Activity image</figcaption></figure></div>
 </div>
 </section></main>
+<dialog class="image-lightbox" id="imageLightbox" aria-label="Expanded activity image"><button class="image-lightbox-close" type="button" aria-label="Close enlarged image">×</button><figure><img alt=""><figcaption></figcaption></figure></dialog>
+
 <style>
 .circle.is-active{opacity:0;pointer-events:none}.focus-backdrop{position:fixed;inset:0;z-index:20;background:#17231f45;opacity:0;visibility:hidden;transition:opacity .25s ease,visibility .25s}.focus-backdrop.open{opacity:1;visibility:visible}.focus-circle{position:fixed;z-index:21;left:50%;top:50%;width:min(92vw,calc(100svh - 32px));height:min(92vw,calc(100svh - 32px));max-width:760px;max-height:760px;border-radius:50%;background:#eabbb1;color:#263b35;transform:translate(-50%,-50%) scale(.65);opacity:0;visibility:hidden;transition:transform .72s cubic-bezier(.18,.82,.22,1),opacity .42s ease,visibility .42s;overflow:hidden;display:grid;place-items:center;padding:clamp(24px,5vw,58px);box-shadow:0 18px 70px #14231f42}.focus-circle.open{transform:translate(-50%,-50%) scale(1);opacity:1;visibility:visible}.stack-tab{display:none;position:absolute;right:-18px;top:50%;transform:translate(0,-50%);z-index:23;width:clamp(92px,22vw,150px);height:auto;aspect-ratio:1;border:0;border-radius:50%;background:#d98487;display:none;color:transparent;font:700 12px Arial;cursor:pointer;padding:0}.focus-circle.has-tabs{overflow:visible}.focus-circle.has-tabs .focus-content{margin-right:10%}.focus-circle.has-tabs .stack-tab{display:none}.focus-circle.has-tabs[data-mode="activity0"] .stack-tab,.focus-circle.has-tabs[data-mode="activity8"] .stack-tab{display:block;width:clamp(150px,34vw,210px);right:-14%;top:60.5%;transform:translate(0,-50%);aspect-ratio:1;height:auto;border:0;border-radius:50%;background:#eacc98;color:transparent;box-shadow:4px 5px 16px #17231f22;cursor:pointer;z-index:-1;clip-path:none}.focus-circle.has-tabs[data-mode="activity8"] .stack-tab{background:#eacc98;clip-path:none}.focus-circle.has-tabs[data-mode="activity0"]{isolation:isolate;overflow:visible}.focus-circle.has-tabs[data-mode="activity0"] .stack-tab{z-index:-1}.focus-circle.has-tabs .focus-content{position:relative;z-index:2}.focus-circle.has-tabs{isolation:isolate}.focus-circle.has-tabs[data-mode="activity0"] .focus-content,.focus-circle.has-tabs[data-mode="activity8"] .focus-content,.focus-circle.has-tabs[data-mode="wc"] .focus-content{background:transparent;border-radius:0;padding:8px 4px}.focus-circle.has-tabs[data-mode="activity8"],.focus-circle.has-tabs[data-mode="activity0"],.focus-circle.has-tabs[data-mode="wc"]{background:#eabbb1}.focus-circle.scroll-stack .focus-content{scrollbar-width:none}.focus-content{position:relative;z-index:2;width:100%;max-width:570px;max-height:100%;overflow:hidden;overscroll-behavior:none;padding:8px 4px;align-self:center;justify-self:center;margin:auto;display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;transform:translateX(8%)}.focus-copy{width:100%}.focus-image{width:min(74%,340px);align-self:center;justify-self:center;margin:14px auto 0;order:2}.image-placeholder{aspect-ratio:16/7;border-radius:14px;background:#f1ede0aa;border:1px dashed #66776b;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:10px}.image-placeholder span{font-weight:800;letter-spacing:.12em;font-size:12px}.image-placeholder small{font-size:10px;margin-top:5px}.focus-image figcaption{font-size:9px;text-align:center;margin-top:5px;color:#43564d}.focus-close{position:absolute;right:8%;top:7%;width:38px;height:38px;border:0;border-radius:50%;font-size:26px;line-height:1;background:#fff8;color:#263b35;cursor:pointer}.focus-kicker{font-size:11px;font-weight:800;letter-spacing:.16em;margin:0 0 5px}.focus-content h2{font-size:clamp(22px,4vw,34px);line-height:1.05;margin:0 0 4px}.focus-label{font-size:13px;margin:0 0 14px;color:#455950}.instruction{margin:8px 0}.instruction b{font-size:12px}.instruction p{font-size:12px;line-height:1.35;margin:2px 0 0}.focus-content{display:grid;grid-template-columns:1fr .85fr;gap:6px 18px;align-items:center}.focus-copy{grid-row:1;align-self:center;justify-self:center;width:100%;text-align:center}.focus-copy .focus-kicker,.focus-copy h2{text-align:center}.focus-copy{text-align:center}.focus-copy .instruction{text-align:left;max-width:440px;margin-left:auto;margin-right:auto}.focus-copy .focus-kicker{margin-top:4px}.variation-tab{border:1px solid #53665b66;background:#fff6;color:#30453b;border-radius:20px;padding:7px 11px;font:600 10px Arial;cursor:pointer}.variation-tab.selected{background:#263b35;color:white;border-color:#263b35}.image-placeholder span{font-weight:800;letter-spacing:.12em;font-size:12px}.image-placeholder small{font-size:10px;margin-top:5px}.focus-image figcaption{font-size:9px;text-align:center;margin-top:5px;color:#43564d}.page.modal-open{overflow:hidden}@media(max-width:600px){.focus-circle{width:min(94vw,calc(100svh - 20px));height:min(94vw,calc(100svh - 20px));padding:clamp(18px,5vw,24px)}.focus-close{right:7%;top:5%;width:32px;height:32px;font-size:22px}.focus-content{display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;width:100%;max-width:390px;padding:20px 4px 4px;overflow-y:auto;overscroll-behavior:contain;margin:auto;transform:translateX(16%)}.focus-copy{width:100%}.focus-copy .instruction{text-align:left}.focus-image{order:2;width:80%;margin-top:10px}.focus-image{width:72%;margin-top:10px}.image-placeholder{max-height:90px;aspect-ratio:2/1}.focus-copy .focus-kicker,.focus-copy h2{text-align:center}.focus-copy{text-align:center}.focus-copy .instruction{text-align:left;max-width:440px;margin-left:auto;margin-right:auto}.focus-content h2{font-size:clamp(19px,5.5vw,24px)}.focus-label{margin-bottom:9px}.instruction{margin:6px 0}.instruction p{font-size:clamp(10px,3vw,11px)}.focus-image{margin-top:9px}.background-treatment{display:grid;position:absolute;inset:0;z-index:1;place-items:center;pointer-events:none}.image-placeholder{max-height:130px;aspect-ratio:2/1}.focus-image figcaption{font-size:8px}}
 .focus-content{transform:translateX(8%)}@media(max-width:600px){.focus-content{transform:translateX(4%)}}
@@ -278,5 +280,32 @@ window.addEventListener('resize',()=>setValue(value));setValue(0);
 })();
 </script>
 
+<script>
+(()=> {
+  const viewer=document.getElementById('imageLightbox');
+  if(!viewer)return;
+  const enlarged=viewer.querySelector('img');
+  const caption=viewer.querySelector('figcaption');
+  const close=viewer.querySelector('.image-lightbox-close');
+  function openImage(image){
+    enlarged.src=image.currentSrc||image.src;
+    enlarged.alt=image.alt||'';
+    caption.textContent=image.closest('figure')?.querySelector('figcaption')?.textContent||image.alt||'';
+    viewer.showModal();
+    close.focus();
+  }
+  document.querySelectorAll('.activity-guides .activity-guide-image img').forEach(image=>{
+    image.tabIndex=0;
+    image.setAttribute('role','button');
+    image.setAttribute('aria-label','Expand image: '+(image.closest('figure')?.querySelector('figcaption')?.textContent||image.alt||'activity image'));
+    image.addEventListener('click',()=>openImage(image));
+    image.addEventListener('keydown',event=>{
+      if(event.key==='Enter'||event.key===' '){event.preventDefault();openImage(image);}
+    });
+  });
+  close.addEventListener('click',()=>viewer.close());
+  viewer.addEventListener('click',event=>{if(event.target===viewer)viewer.close();});
+})();
+</script>
 </body></html>
 
