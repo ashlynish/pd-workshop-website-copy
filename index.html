@@ -404,47 +404,59 @@ window.addEventListener('resize',()=>setValue(value));setValue(0);
   });
   const printButton=document.getElementById('printQuickGuide');
   const openStates=new Map();
-  let printBundleState=null;
+  let printBundleStates=[];
   printButton?.addEventListener('click',()=>window.print());
   window.addEventListener('beforeprint',()=>{
+    if(printBundleStates.length)return;
     document.querySelectorAll('.activity-guides details').forEach(step=>{
       openStates.set(step,step.open);
       step.open=true;
     });
-    if(printBundleState)return;
     const grid=document.querySelector('.activity-guide-grid');
+    if(!grid)return;
+    const createBundle=(className,anchor,nodes,hiddenSource=null)=>{
+      if(!anchor||!nodes.length)return;
+      const bundle=document.createElement('section');
+      bundle.className=className;
+      const moved=nodes.map(node=>{
+        const placeholder=document.createComment('print layout restore point');
+        node.parentNode.insertBefore(placeholder,node);
+        return {node,placeholder};
+      });
+      grid.insertBefore(bundle,anchor);
+      bundle.append(...nodes);
+      if(hiddenSource)hiddenSource.classList.add('print-bundled-source');
+      printBundleStates.push({bundle,moved,hiddenSource});
+    };
+    const activity0=document.getElementById('activity0Guide');
+    const activity1=document.getElementById('activity1Guide');
+    const panel1=activity1?.querySelector(':scope > .activity-guide-panel');
+    const heading1=panel1?.querySelector(':scope > .wc-group-heading');
+    const stepList1=panel1?.querySelector(':scope > .wc-guide-steps');
+    const steps1=stepList1?[...stepList1.children].filter(node=>node.matches('.wc-guide-step')):[];
+    if(activity0&&activity1&&heading1&&steps1.length){
+      createBundle('print-start-activity-bundle',activity0,[activity0,heading1,...steps1],activity1);
+    }
     const activity5=document.getElementById('activity5Guide');
     const activity6=document.getElementById('activity6Guide');
     const panel6=activity6?.querySelector(':scope > .activity-guide-panel');
     const heading6=panel6?.querySelector(':scope > .wc-group-heading');
-    const stepList=panel6?.querySelector(':scope > .wc-guide-steps');
-    const firstTwo=stepList?[...stepList.children].filter(node=>node.matches('.wc-guide-step')).slice(0,2):[];
-    if(!grid||!activity5||!activity6||!heading6||!stepList||firstTwo.length<2)return;
-    const bundle=document.createElement('section');
-    bundle.className='print-activity-bundle';
-    const moved=[activity5,heading6,...firstTwo].map(node=>{
-      const placeholder=document.createComment('print layout restore point');
-      node.parentNode.insertBefore(placeholder,node);
-      return {node,placeholder};
-    });
-    grid.insertBefore(bundle,activity5);
-    bundle.append(activity5,heading6,...firstTwo);
-    const continuation=heading6.cloneNode(true);
-    const continuationKicker=continuation.querySelector('.activity-guide-kicker');
-    if(continuationKicker)continuationKicker.textContent='ACTIVITY 6 · CONTINUED';
-    stepList.insertBefore(continuation,stepList.firstChild);
-    printBundleState={bundle,moved,continuation};
+    const stepList6=panel6?.querySelector(':scope > .wc-guide-steps');
+    const firstTwo=stepList6?[...stepList6.children].filter(node=>node.matches('.wc-guide-step')).slice(0,2):[];
+    if(activity5&&activity6&&heading6&&firstTwo.length===2){
+      createBundle('print-activity-bundle',activity5,[activity5,heading6,...firstTwo]);
+    }
   });
   window.addEventListener('afterprint',()=>{
-    if(printBundleState){
-      printBundleState.moved.forEach(({node,placeholder})=>{
+    printBundleStates.forEach(({moved,hiddenSource,bundle})=>{
+      moved.forEach(({node,placeholder})=>{
         placeholder.parentNode?.insertBefore(node,placeholder);
         placeholder.remove();
       });
-      printBundleState.continuation.remove();
-      printBundleState.bundle.remove();
-      printBundleState=null;
-    }
+      hiddenSource?.classList.remove('print-bundled-source');
+      bundle.remove();
+    });
+    printBundleStates=[];
     openStates.forEach((wasOpen,step)=>{step.open=wasOpen});
     openStates.clear();
   });
