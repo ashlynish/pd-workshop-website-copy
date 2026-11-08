@@ -518,3 +518,10 @@ html,body{height:auto;min-height:100%;overflow-x:hidden;overflow-y:auto}
 @media(min-width:701px){
   .activity-guide-card[data-guide-accordion].is-expanded{flex:0 0 clamp(330px,58%,560px);min-width:clamp(330px,58%,560px)}
 }
+
+
+/* When every guide is collapsed, share the full strip evenly across all tabs. */
+.activity-guide-grid:not(.has-expanded) .activity-guide-card[data-guide-accordion]{
+  flex:1 1 0;
+  min-width:0;
+}
