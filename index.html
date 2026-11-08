@@ -391,7 +391,7 @@ window.addEventListener('resize',()=>setValue(value));setValue(0);
       if(shouldOpen)window.setTimeout(()=>{
         const cardRect=card.getBoundingClientRect();
         const gridRect=grid.getBoundingClientRect();
-        grid.scrollTo({left:grid.scrollLeft+cardRect.left-gridRect.left-(grid.clientWidth-card.clientWidth)/2,behavior:'smooth'});
+        grid.scrollTo({left:grid.scrollLeft+cardRect.left-gridRect.left-(grid.clientWidth-card.clientWidth)/2,behavior:window.matchMedia('(prefers-reduced-motion: reduce)').matches?'auto':'smooth'});
       },350);
     });
   });
