@@ -9,3 +9,6 @@
 @media(max-width:420px){.welcome-screen{padding:18px}.welcome-card{padding:30px 22px;border-radius:26px}.unlock-slider{height:60px}.slider-track{inset:4px}.slider-knob{width:52px;height:52px}}
 
 .slider-knob svg{display:block;width:25px;height:25px;fill:none;stroke:currentColor;stroke-width:2.5;stroke-linecap:round;stroke-linejoin:round}
+
+#openWelcomeGuide,#openGuide{background:#e5f0eb;border-color:#77a99a;color:#294b42}
+#openWelcomeGuide>span,#openGuide>span{background:#77a99a;color:#fff}
