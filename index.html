@@ -404,14 +404,47 @@ window.addEventListener('resize',()=>setValue(value));setValue(0);
   });
   const printButton=document.getElementById('printQuickGuide');
   const openStates=new Map();
+  let printBundleState=null;
   printButton?.addEventListener('click',()=>window.print());
   window.addEventListener('beforeprint',()=>{
     document.querySelectorAll('.activity-guides details').forEach(step=>{
       openStates.set(step,step.open);
       step.open=true;
     });
+    if(printBundleState)return;
+    const grid=document.querySelector('.activity-guide-grid');
+    const activity5=document.getElementById('activity5Guide');
+    const activity6=document.getElementById('activity6Guide');
+    const panel6=activity6?.querySelector(':scope > .activity-guide-panel');
+    const heading6=panel6?.querySelector(':scope > .wc-group-heading');
+    const stepList=panel6?.querySelector(':scope > .wc-guide-steps');
+    const firstTwo=stepList?[...stepList.children].filter(node=>node.matches('.wc-guide-step')).slice(0,2):[];
+    if(!grid||!activity5||!activity6||!heading6||!stepList||firstTwo.length<2)return;
+    const bundle=document.createElement('section');
+    bundle.className='print-activity-bundle';
+    const moved=[activity5,heading6,...firstTwo].map(node=>{
+      const placeholder=document.createComment('print layout restore point');
+      node.parentNode.insertBefore(placeholder,node);
+      return {node,placeholder};
+    });
+    grid.insertBefore(bundle,activity5);
+    bundle.append(activity5,heading6,...firstTwo);
+    const continuation=heading6.cloneNode(true);
+    const continuationKicker=continuation.querySelector('.activity-guide-kicker');
+    if(continuationKicker)continuationKicker.textContent='ACTIVITY 6 · CONTINUED';
+    stepList.insertBefore(continuation,stepList.firstChild);
+    printBundleState={bundle,moved,continuation};
   });
   window.addEventListener('afterprint',()=>{
+    if(printBundleState){
+      printBundleState.moved.forEach(({node,placeholder})=>{
+        placeholder.parentNode?.insertBefore(node,placeholder);
+        placeholder.remove();
+      });
+      printBundleState.continuation.remove();
+      printBundleState.bundle.remove();
+      printBundleState=null;
+    }
     openStates.forEach((wasOpen,step)=>{step.open=wasOpen});
     openStates.clear();
   });
