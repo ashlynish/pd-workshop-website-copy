@@ -846,3 +846,68 @@ html,body{height:auto;min-height:100%;overflow-x:hidden;overflow-y:auto}
   .print-start-activity-bundle .activity-guide-kicker{font-size:7pt!important}
   .print-start-activity-bundle .activity-guide-copy h3{font-size:12pt!important}
 }
+
+
+/* iPhone touch sizing, readable guide copy, and a clearer active-tab state. */
+@media(max-width:700px){
+  .header-actions .helper-action{
+    min-height:44px;
+    padding:9px 12px;
+    touch-action:manipulation;
+  }
+  .activity-guide-grid .activity-guide-card[data-guide-accordion]{min-width:42px}
+  .activity-guide-grid .activity-guide-card[data-guide-accordion].is-expanded{min-width:230px}
+  .activity-guide-grid:not(.has-expanded) .activity-guide-card[data-guide-accordion]{min-width:42px}
+  .activity-guide-card[data-guide-accordion]:not(.is-expanded)>.activity-guide-toggle .activity-guide-toggle-number{
+    width:40px;
+    height:40px;
+    min-width:40px;
+    font-size:13px;
+  }
+  .activity-guide-card[data-guide-accordion].is-expanded>.activity-guide-toggle{
+    min-height:52px;
+    flex-basis:52px;
+    touch-action:manipulation;
+  }
+  .activity-guide-card[data-guide-accordion].is-expanded>.activity-guide-toggle .activity-guide-toggle-number{
+    width:36px;
+    height:36px;
+    min-width:36px;
+  }
+  .activity-guide-card[data-guide-accordion].is-expanded>.activity-guide-toggle .activity-guide-toggle-icon{
+    width:32px;
+    height:32px;
+    flex-basis:32px;
+  }
+  .activity-guide-card[data-guide-accordion].is-expanded{
+    box-shadow:inset 0 0 0 2px #6b9d8b,0 4px 14px rgba(39,58,52,.12);
+  }
+  .activity-guide-card[data-guide-accordion] .activity-guide-instruction,
+  .activity-guide-card[data-guide-accordion] .wc-step-title{
+    font-size:max(16px,1em);
+    line-height:1.4;
+  }
+  .activity-guide-card[data-guide-accordion] .wc-guide-step>summary{
+    min-height:52px;
+    touch-action:manipulation;
+  }
+  .activity-guide-card[data-guide-accordion] .wc-guide-step>summary .wc-step-toggle{
+    width:30px;
+    height:30px;
+  }
+  .dialog-close,.image-lightbox-close{
+    width:44px;
+    height:44px;
+    flex-basis:44px;
+    touch-action:manipulation;
+  }
+  .print-guides-button{min-height:44px}
+}
+@media(prefers-reduced-motion:reduce){
+  *,*::before,*::after{
+    scroll-behavior:auto!important;
+    animation-duration:.01ms!important;
+    animation-iteration-count:1!important;
+    transition-duration:.01ms!important;
+  }
+}
