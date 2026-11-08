@@ -758,3 +758,49 @@ html,body{height:auto;min-height:100%;overflow-x:hidden;overflow-y:auto}
     max-height:34mm!important;
   }
 }
+
+
+@media print{
+  /* A dedicated sheet holds Activity 5 together with 6a and 6b. */
+  .print-activity-bundle{
+    display:block!important;
+    width:100%!important;
+    margin:0!important;
+    padding:0!important;
+    break-before:page!important;
+    page-break-before:always!important;
+    break-inside:avoid-page!important;
+    page-break-inside:avoid!important;
+  }
+  .print-activity-bundle #activity5Guide{
+    margin:0 0 3mm!important;
+    padding:3mm!important;
+  }
+  .print-activity-bundle .wc-group-heading{margin:0 0 2mm!important}
+  .print-activity-bundle .wc-guide-step{
+    margin:0 0 2mm!important;
+    break-inside:avoid-page!important;
+    page-break-inside:avoid!important;
+  }
+  .print-activity-bundle .wc-guide-step:last-child{margin-bottom:0!important}
+  .print-activity-bundle .wc-step-content{
+    grid-template-columns:25% minmax(0,1fr)!important;
+    gap:3mm!important;
+    padding:2mm!important;
+    break-inside:avoid-page!important;
+  }
+  .print-activity-bundle .activity-guide-image img{max-height:25mm!important}
+  .print-activity-bundle .activity-guide-instruction{
+    margin-top:2mm!important;
+    font-size:8.5pt!important;
+    line-height:1.2!important;
+  }
+  .print-activity-bundle .activity-guide-instruction.safety{padding:2mm!important}
+  .print-activity-bundle .activity-guide-kicker{font-size:7.5pt!important}
+  .print-activity-bundle .activity-guide-copy h3{font-size:13pt!important}
+  .print-activity-bundle+.activity-guide-card #activity6Guide,
+  #activity6Guide{
+    break-inside:auto!important;
+    page-break-inside:auto!important;
+  }
+}
