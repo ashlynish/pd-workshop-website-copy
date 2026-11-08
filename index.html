@@ -320,8 +320,6 @@ window.addEventListener('resize',()=>setValue(value));setValue(0);
     const toggle=document.createElement('button');
     const panel=document.createElement('div');
     const expanded=index===0;
-    const thumb=card.querySelector('.activity-guide-image img');
-    if(thumb)card.style.setProperty('--guide-thumb','url("'+thumb.getAttribute('src').replace(/"/g,'\\"')+'")');
     toggle.type='button';
     toggle.className='activity-guide-toggle';
     toggle.id=card.id+'Toggle';
