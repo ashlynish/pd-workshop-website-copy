@@ -312,6 +312,7 @@ window.addEventListener('resize',()=>setValue(value));setValue(0);
   const grid=document.querySelector('.activity-guide-grid');
   if(!grid)return;
   const cards=[...grid.querySelectorAll(':scope > .activity-guide-card')];
+  grid.classList.add('has-expanded');
   cards.forEach((card,index)=>{
     const copy=card.querySelector('.wc-group-heading, .activity-guide-copy');
     const title=copy?.querySelector('h3')?.textContent?.trim()||card.id.replace('Guide','');
@@ -372,13 +373,17 @@ window.addEventListener('resize',()=>setValue(value));setValue(0);
     card.append(toggle,panel);
     toggle.addEventListener('click',()=>{
       const shouldOpen=!card.classList.contains('is-expanded');
+      grid.classList.toggle('has-expanded',shouldOpen);
       cards.forEach(other=>{
         const wasExpanded=other.classList.contains('is-expanded');
         const active=shouldOpen&&other===card;
-        if(wasExpanded&&!active)other.querySelectorAll('.wc-guide-step:not(.featured-first-step)').forEach(step=>{step.open=false});
+        const otherPanel=other.querySelector(':scope > .activity-guide-panel');
+        if(wasExpanded&&!active){
+          other.querySelectorAll('.wc-guide-step:not(.featured-first-step)').forEach(step=>{step.open=false});
+          if(otherPanel)otherPanel.scrollTop=0;
+        }
         other.classList.toggle('is-expanded',active);
         const otherToggle=other.querySelector(':scope > .activity-guide-toggle');
-        const otherPanel=other.querySelector(':scope > .activity-guide-panel');
         otherToggle?.setAttribute('aria-expanded',String(active));
         if(otherToggle){const n=otherToggle.querySelector('.activity-guide-toggle-number')?.textContent||'';const t=otherToggle.querySelector('.activity-guide-toggle-title')?.textContent||'guide';otherToggle.setAttribute('aria-label',active?'Activity '+n+': '+t+', expanded':'Open Activity '+n+': '+t);}
         if(otherPanel)otherPanel.hidden=!active;
