@@ -431,3 +431,12 @@ html,body{height:auto;min-height:100%;overflow-x:hidden;overflow-y:auto}
 .activity-guide-card[data-guide-accordion] .wc-step-content>.activity-guide-image,.activity-guide-card[data-guide-accordion] .ramp-guide-content>.activity-guide-image{width:100%;max-width:100%;order:-1}
 .activity-guide-card[data-guide-accordion] .wc-step-content>.activity-guide-image img,.activity-guide-card[data-guide-accordion] .ramp-guide-content>.activity-guide-image img{width:100%;max-height:38svh;aspect-ratio:16/9;object-fit:cover}
 .activity-guide-card[data-guide-accordion] .wc-step-content>.activity-guide-copy,.activity-guide-card[data-guide-accordion] .ramp-guide-content>.activity-guide-copy{width:100%;max-width:none}
+
+
+/* Feature each grouped activity's first part; keep later parts below as accordions. */
+.activity-guide-card[data-guide-layout="steps"] .wc-guide-step.featured-first-step{border:0;border-radius:0;background:transparent;overflow:visible}
+.activity-guide-card[data-guide-layout="steps"] .wc-guide-step.featured-first-step>summary{display:none}
+.activity-guide-card[data-guide-layout="steps"] .wc-guide-step.featured-first-step>.wc-step-content{padding:0 0 12px;border:0}
+.featured-step-heading{margin:0 0 8px}
+.featured-step-heading .activity-guide-kicker{margin:0 0 3px}
+.featured-step-heading h4{margin:0;color:#273a34;font-size:clamp(17px,1.5vw,21px);line-height:1.1}
