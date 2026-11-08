@@ -804,3 +804,45 @@ html,body{height:auto;min-height:100%;overflow-x:hidden;overflow-y:auto}
     page-break-inside:auto!important;
   }
 }
+
+
+@media print{
+  .activity-guide-card.print-bundled-source{display:none!important}
+  /* Activities 0 and 1 print together as one compact unit. */
+  .print-start-activity-bundle{
+    display:block!important;
+    width:100%!important;
+    margin:0!important;
+    padding:0!important;
+    break-before:auto!important;
+    page-break-before:auto!important;
+    break-inside:avoid-page!important;
+    page-break-inside:avoid!important;
+  }
+  .print-start-activity-bundle #activity0Guide{
+    margin:0 0 2mm!important;
+    padding:3mm!important;
+  }
+  .print-start-activity-bundle .wc-group-heading{margin:0 0 2mm!important}
+  .print-start-activity-bundle .wc-guide-step{
+    margin:0 0 1.5mm!important;
+    break-inside:avoid-page!important;
+    page-break-inside:avoid!important;
+  }
+  .print-start-activity-bundle .wc-guide-step:last-child{margin-bottom:0!important}
+  .print-start-activity-bundle .wc-step-content{
+    grid-template-columns:23% minmax(0,1fr)!important;
+    gap:2mm!important;
+    padding:1.5mm!important;
+    break-inside:avoid-page!important;
+  }
+  .print-start-activity-bundle .activity-guide-image img{max-height:20mm!important}
+  .print-start-activity-bundle .activity-guide-instruction{
+    margin-top:1.5mm!important;
+    font-size:8pt!important;
+    line-height:1.15!important;
+  }
+  .print-start-activity-bundle .activity-guide-instruction.safety{padding:1.5mm!important}
+  .print-start-activity-bundle .activity-guide-kicker{font-size:7pt!important}
+  .print-start-activity-bundle .activity-guide-copy h3{font-size:12pt!important}
+}
