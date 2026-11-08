@@ -706,3 +706,11 @@ html,body{height:auto;min-height:100%;overflow-x:hidden;overflow-y:auto}
   figure, img, .activity-guide-instruction{break-inside:avoid-page}
   a{color:inherit!important;text-decoration:none!important}
 }
+
+
+@media print{
+  .activity-guide-card[data-guide-accordion]+.activity-guide-card[data-guide-accordion]{
+    break-before:page;
+    page-break-before:always;
+  }
+}
