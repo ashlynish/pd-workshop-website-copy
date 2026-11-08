@@ -373,3 +373,18 @@ html,body{height:auto;min-height:100%;overflow-x:hidden;overflow-y:auto}
   .activity-guide-panel{grid-template-columns:1fr}
   .activity-guide-card:not(.is-expanded)>.activity-guide-toggle .activity-guide-toggle-number,.activity-guide-card.is-expanded>.activity-guide-toggle .activity-guide-toggle-number{min-width:70px}
 }
+
+
+/* Match the reference accordion: photo strips with numbered circles while collapsed. */
+.activity-guide-card[data-guide-accordion]:not(.is-expanded){background-color:#f8f7ef;background-image:var(--guide-thumb);background-size:cover;background-position:center}
+.activity-guide-card[data-guide-accordion]:not(.is-expanded)>.activity-guide-toggle{writing-mode:initial;transform:none;flex-direction:column;justify-content:flex-end;gap:0;padding:12px 0;background:linear-gradient(180deg,rgba(248,247,239,.08),rgba(248,247,239,.52))}
+.activity-guide-card:not(.is-expanded)>.activity-guide-toggle .activity-guide-toggle-number{display:grid;place-items:center;width:34px;height:34px;min-width:34px;border:1px solid rgba(52,78,67,.16);border-radius:50%;background:rgba(248,247,239,.94);color:#283a34;font-size:14px;line-height:1;font-weight:800;letter-spacing:0}
+.activity-guide-card:not(.is-expanded)>.activity-guide-toggle .activity-guide-toggle-title,.activity-guide-card:not(.is-expanded)>.activity-guide-toggle .activity-guide-toggle-icon{display:none}
+.activity-guide-card[data-guide-accordion].is-expanded{background-image:none;background-color:rgba(255,255,255,.56)}
+.activity-guide-card.is-expanded>.activity-guide-toggle .activity-guide-toggle-number{display:inline-flex;align-items:center;justify-content:center;min-width:32px;height:32px;padding:0 8px;border-radius:50%;background:rgba(255,255,255,.72);color:#283a34;font-size:12px;font-weight:800;letter-spacing:0}
+@media(max-width:700px){
+  .activity-guide-card[data-guide-accordion]:not(.is-expanded){background-image:none;background-color:rgba(255,255,255,.56)}
+  .activity-guide-card[data-guide-accordion]:not(.is-expanded)>.activity-guide-toggle{flex-direction:row;justify-content:flex-start;gap:10px;padding:9px 12px;background:transparent}
+  .activity-guide-card:not(.is-expanded)>.activity-guide-toggle .activity-guide-toggle-number{width:34px;height:34px;min-width:34px}
+  .activity-guide-card.is-expanded>.activity-guide-toggle .activity-guide-toggle-number{width:34px;height:34px;min-width:34px;padding:0}
+}
