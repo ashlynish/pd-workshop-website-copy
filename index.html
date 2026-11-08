@@ -320,6 +320,24 @@ window.addEventListener('resize',()=>setValue(value));setValue(0);
     const toggle=document.createElement('button');
     const panel=document.createElement('div');
     const expanded=index===0;
+    const firstStep=card.querySelector('.wc-guide-steps > .wc-guide-step:first-child');
+    const firstSummary=firstStep?.querySelector(':scope > summary');
+    const firstContent=firstStep?.querySelector(':scope > .wc-step-content');
+    const firstCopy=firstContent?.querySelector(':scope > .activity-guide-copy');
+    if(firstSummary&&firstCopy&&!firstCopy.querySelector('.featured-step-heading')){
+      const stepLabel=firstSummary.querySelector('.activity-guide-kicker')?.textContent?.trim()||'';
+      const stepTitle=firstSummary.querySelector('.wc-step-title')?.textContent?.trim()||'';
+      const heading=document.createElement('div');
+      heading.className='featured-step-heading';
+      const kicker=document.createElement('p');
+      kicker.className='activity-guide-kicker';
+      kicker.textContent=stepLabel;
+      const titleElement=document.createElement('h4');
+      titleElement.textContent=stepTitle;
+      heading.append(kicker,titleElement);
+      firstCopy.prepend(heading);
+      firstStep.classList.add('featured-first-step');
+    }
     toggle.type='button';
     toggle.className='activity-guide-toggle';
     toggle.id=card.id+'Toggle';
