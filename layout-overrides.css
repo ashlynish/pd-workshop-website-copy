@@ -271,3 +271,29 @@ html,body{height:auto;min-height:100%;overflow-x:hidden;overflow-y:auto}
 .activity-guide-calm{--guide-color:#aeb9c5}
 .activity-guide-wc,.activity-guide-wc-group{--guide-color:#d3d96f}
 .activity-guide-drink{--guide-color:#e2be55}
+
+/* White-washed station palette, matched across map, route badges, and guide cards. */
+.map .c-look{background:#c2e2f3}
+.map .c-route-ramps{background:#f8d9bc}
+.map .c-ramp{background:#ddd3ef}
+.map .c-door{background:#f4c7ce}
+.map .c-calm{background:#dbe0e5}
+.map .c-wc{background:#eaedb9}
+.map .c-drink{background:#f3e4aa}
+.sequence-step[data-circle="c-look"] .step-number{background:#c2e2f3;color:#244252}
+.sequence-step[data-circle="c-route-ramps"] .step-number{background:#f8d9bc;color:#4b3424}
+.sequence-step[data-circle="c-ramp"] .step-number{background:#ddd3ef;color:#382b49}
+.sequence-step[data-circle="c-door"] .step-number{background:#f4c7ce;color:#4a2930}
+.sequence-step[data-circle="c-calm"] .step-number{background:#dbe0e5;color:#354148}
+.sequence-group-label .step-number-wc,.sequence-step[data-circle="c-wc"] .step-number{background:#eaedb9;color:#424520}
+.sequence-step[data-circle="c-drink"] .step-number{background:#f3e4aa;color:#4b3d1f}
+.activity-guide-look,.activity-guide-look-group{--guide-color:#c2e2f3}
+.activity-guide-route-ramps,.activity-guide-ramp-group{--guide-color:#f8d9bc}
+.activity-guide-ramp{--guide-color:#ddd3ef}
+.activity-guide-door{--guide-color:#f4c7ce}
+.activity-guide-calm{--guide-color:#dbe0e5}
+.activity-guide-wc,.activity-guide-wc-group{--guide-color:#eaedb9}
+.activity-guide-drink{--guide-color:#f3e4aa}
+/* Use blue for the Call button to match the softer activity palette. */
+#openCall{border-color:#a9c9dc;background:#edf5fa;color:#31566a}
+#openCall span{background:#a9c9dc;color:#fff}
