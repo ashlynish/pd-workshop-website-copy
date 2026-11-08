@@ -244,3 +244,7 @@ html,body{height:auto;min-height:100%;overflow-x:hidden;overflow-y:auto}
 .map-route{display:none}
 
 
+
+/* Keep both quick-action rows on shared columns. */
+.header-actions{display:grid;grid-template-columns:max-content max-content;grid-auto-flow:row;align-items:start;justify-content:start;column-gap:6px;row-gap:6px}
+.header-action-row{display:contents}
