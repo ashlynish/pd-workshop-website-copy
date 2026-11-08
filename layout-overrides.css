@@ -310,3 +310,9 @@ html,body{height:auto;min-height:100%;overflow-x:hidden;overflow-y:auto}
 #openCall span{background:#6b95ac;color:#fff}
 @media(max-width:700px){.header{min-height:74px}}
 @media(max-width:380px){.header{min-height:72px}}
+
+
+/* Compact numbered guidance and multi-point safety prompts. */
+.activity-guide-instruction .instruction-points{margin:3px 0 0;padding-left:20px;line-height:1.35}
+.activity-guide-instruction .instruction-points li+li{margin-top:3px}
+.activity-guide-instruction.safety .instruction-points{padding-left:19px}
