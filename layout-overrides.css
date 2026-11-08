@@ -732,3 +732,29 @@ html,body{height:auto;min-height:100%;overflow-x:hidden;overflow-y:auto}
     page-break-inside:avoid!important;
   }
 }
+
+
+@media print{
+  /* Keep Activity 5 with the start of Activity 6 when the page has room. */
+  #activity5Guide{
+    break-after:avoid-page!important;
+    page-break-after:avoid!important;
+  }
+  #activity6Guide{
+    break-inside:auto!important;
+    page-break-inside:auto!important;
+  }
+  #activity6Guide .wc-group-heading{
+    break-after:avoid-page!important;
+    page-break-after:avoid!important;
+  }
+  /* Keep steps 6a and 6b together, then let 6c–6e flow onto later pages. */
+  #activity6Guide .wc-guide-step:nth-of-type(1){
+    break-after:avoid-page!important;
+    page-break-after:avoid!important;
+  }
+  #activity5Guide .activity-guide-image img,
+  #activity6Guide .wc-guide-step:nth-of-type(-n+2) .activity-guide-image img{
+    max-height:34mm!important;
+  }
+}
