@@ -381,6 +381,11 @@ window.addEventListener('resize',()=>setValue(value));setValue(0);
         if(otherToggle){const n=otherToggle.querySelector('.activity-guide-toggle-number')?.textContent||'';const t=otherToggle.querySelector('.activity-guide-toggle-title')?.textContent||'guide';otherToggle.setAttribute('aria-label',active?'Activity '+n+': '+t+', expanded':'Open Activity '+n+': '+t);}
         if(otherPanel)otherPanel.hidden=!active;
       });
+      if(shouldOpen)window.setTimeout(()=>{
+        const cardRect=card.getBoundingClientRect();
+        const gridRect=grid.getBoundingClientRect();
+        grid.scrollTo({left:grid.scrollLeft+cardRect.left-gridRect.left-(grid.clientWidth-card.clientWidth)/2,behavior:'smooth'});
+      },350);
     });
   });
   document.addEventListener('click',event=>{
