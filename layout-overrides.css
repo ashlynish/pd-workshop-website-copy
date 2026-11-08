@@ -560,3 +560,149 @@ html,body{height:auto;min-height:100%;overflow-x:hidden;overflow-y:auto}
 .activity-guide-instruction.safety .instruction-points{
   margin-top:4px;
 }
+
+
+/* Quick-guide action and clean print layout. */
+.activity-guides-heading{grid-template-columns:auto minmax(0,1fr) auto}
+.print-guides-button{
+  grid-column:3;
+  grid-row:1/-1;
+  justify-self:end;
+  align-self:center;
+  padding:8px 12px;
+  border:1px solid #8eb7ab;
+  border-radius:999px;
+  background:#eaf3ee;
+  color:#315c51;
+  font:inherit;
+  font-size:12px;
+  font-weight:700;
+  cursor:pointer;
+}
+.print-guides-button:hover{background:#deece5}
+.print-guides-button:focus-visible{outline:3px solid #417f70;outline-offset:2px}
+@media(max-width:700px){
+  .activity-guides-heading{grid-template-columns:1fr}
+  .print-guides-button{grid-column:1;grid-row:auto;justify-self:start;margin-top:5px}
+}
+@media print{
+  @page{margin:12mm}
+  html,body{height:auto!important;min-height:0!important;overflow:visible!important;background:#fff!important}
+  body{color:#202a26!important;font-size:10pt!important;-webkit-print-color-adjust:exact;print-color-adjust:exact}
+  #welcomeScreen,.header,.map,.map-side-note,#focusBackdrop,#focusCircle,.helper-dialog,
+  .print-guides-button,.activity-guide-toggle,.wc-step-toggle,.dialog-close,.focus-close{display:none!important}
+  #workshopPage,.page{
+    display:block!important;
+    position:static!important;
+    width:100%!important;
+    max-width:none!important;
+    height:auto!important;
+    min-height:0!important;
+    margin:0!important;
+    padding:0!important;
+    overflow:visible!important;
+    background:#fff!important;
+  }
+  .activity-guides{
+    display:block!important;
+    width:100%!important;
+    max-width:none!important;
+    margin:0!important;
+  }
+  .activity-guides-heading{
+    display:block!important;
+    margin:0 0 8mm!important;
+    color:#202a26!important;
+  }
+  .activity-guides-heading h2{font-size:22pt!important}
+  .activity-guides-heading>p:last-child{margin-top:2mm!important;text-align:left!important}
+  .activity-guide-grid{
+    display:block!important;
+    width:100%!important;
+    max-width:none!important;
+    height:auto!important;
+    padding:0!important;
+    overflow:visible!important;
+  }
+  .activity-guide-card[data-guide-accordion]{
+    display:block!important;
+    width:100%!important;
+    min-width:0!important;
+    max-width:none!important;
+    height:auto!important;
+    min-height:0!important;
+    margin:0 0 7mm!important;
+    padding:5mm!important;
+    overflow:visible!important;
+    border:1px solid #c9d1cd!important;
+    border-top:3px solid var(--guide-color)!important;
+    border-radius:8px!important;
+    background:#fff!important;
+    color:#202a26!important;
+    break-inside:auto!important;
+    page-break-inside:auto!important;
+    box-shadow:none!important;
+  }
+  .activity-guide-card>.activity-guide-panel,
+  .activity-guide-card>.activity-guide-panel[hidden]{
+    display:grid!important;
+    position:static!important;
+    grid-template-columns:30% minmax(0,1fr)!important;
+    align-items:start!important;
+    gap:4mm!important;
+    width:100%!important;
+    height:auto!important;
+    min-height:0!important;
+    padding:0!important;
+    overflow:visible!important;
+  }
+  .activity-guide-card>.activity-guide-panel>.activity-guide-intro{grid-column:1/-1}
+  .activity-guide-card[data-guide-layout="steps"]>.activity-guide-panel{display:block!important}
+  .activity-guide-card[data-guide-layout="steps"] .wc-group-heading{margin:0 0 4mm!important}
+  .activity-guide-image{display:block!important;width:100%!important;max-width:none!important;margin:0!important}
+  .activity-guide-image img{
+    display:block!important;
+    width:100%!important;
+    max-width:100%!important;
+    max-height:48mm!important;
+    aspect-ratio:auto!important;
+    object-fit:contain!important;
+    border-radius:4px!important;
+  }
+  .activity-guide-copy{width:100%!important;max-width:none!important;color:#202a26!important}
+  .activity-guide-kicker{font-size:8pt!important}
+  .activity-guide-copy h3{font-size:15pt!important}
+  .activity-guide-instruction{margin-top:3mm!important;font-size:9pt!important;line-height:1.3!important}
+  .activity-guide-instruction.safety{
+    background:#fff8e5!important;
+    border:1px solid #e4c77f!important;
+    border-left:4px solid #c18b32!important;
+  }
+  .wc-guide-step{
+    display:block!important;
+    margin:0 0 4mm!important;
+    overflow:visible!important;
+    break-inside:auto!important;
+    page-break-inside:auto!important;
+  }
+  .wc-guide-step>summary{
+    display:grid!important;
+    grid-template-columns:22mm minmax(0,1fr)!important;
+    min-height:0!important;
+    padding:3mm!important;
+    border-bottom:1px solid #c9d1cd!important;
+    background:#f4f8f8!important;
+  }
+  .wc-step-content{
+    display:grid!important;
+    grid-template-columns:30% minmax(0,1fr)!important;
+    align-items:start!important;
+    gap:4mm!important;
+    padding:3mm!important;
+    overflow:visible!important;
+    break-inside:avoid-page;
+  }
+  .wc-step-content>.activity-guide-image{order:0!important}
+  figure, img, .activity-guide-instruction{break-inside:avoid-page}
+  a{color:inherit!important;text-decoration:none!important}
+}
