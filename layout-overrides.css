@@ -509,3 +509,12 @@ html,body{height:auto;min-height:100%;overflow-x:hidden;overflow-y:auto}
 #activity6Guide .wc-guide-step>summary .activity-guide-kicker{color:#6d5b86}
 #activity6Guide .wc-step-toggle{background:#dfd1ee}
 #activity6Guide .wc-step-toggle::before,#activity6Guide .wc-step-toggle::after{background:#594a70}
+
+
+/* Align the guide accordion with the map and size its open panel responsively. */
+.activity-guides{width:min(100%,760px);max-width:760px;min-width:0;margin:10px auto 22px}
+.activity-guide-grid{width:100%;max-width:100%;min-width:0;box-sizing:border-box}
+.activity-guide-card[data-guide-accordion].is-expanded{flex:0 0 clamp(230px,72%,560px);min-width:clamp(230px,72%,560px)}
+@media(min-width:701px){
+  .activity-guide-card[data-guide-accordion].is-expanded{flex:0 0 clamp(330px,58%,560px);min-width:clamp(330px,58%,560px)}
+}
