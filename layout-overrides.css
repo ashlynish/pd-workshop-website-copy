@@ -714,3 +714,21 @@ html,body{height:auto;min-height:100%;overflow-x:hidden;overflow-y:auto}
     page-break-before:always;
   }
 }
+
+
+@media print{
+  /* Let multiple complete activities share a page when they fit. */
+  .activity-guide-card[data-guide-accordion]+.activity-guide-card[data-guide-accordion]{
+    break-before:auto!important;
+    page-break-before:auto!important;
+  }
+  .activity-guide-card[data-guide-accordion]{
+    break-inside:avoid-page!important;
+    page-break-inside:avoid!important;
+  }
+  /* Keep each subactivity together when it can fit on a page. */
+  .wc-guide-step{
+    break-inside:avoid-page!important;
+    page-break-inside:avoid!important;
+  }
+}
