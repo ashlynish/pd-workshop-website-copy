@@ -411,3 +411,23 @@ html,body{height:auto;min-height:100%;overflow-x:hidden;overflow-y:auto}
   .activity-guide-card[data-guide-accordion].is-expanded{flex-basis:210px;min-width:210px}
   .activity-guide-card:not(.is-expanded)>.activity-guide-toggle .activity-guide-toggle-number{width:21px;height:21px;min-width:21px;font-size:10px}
 }
+
+
+/* Collapsed guide tabs use solid activity colors instead of photo previews. */
+.activity-guide-card[data-guide-accordion]:not(.is-expanded){background-image:none!important;background-color:var(--guide-color,#eabbb1)}
+.activity-guide-card[data-guide-accordion]:not(.is-expanded)>.activity-guide-toggle{background:transparent!important}
+.activity-guide-card[data-guide-accordion]:not(.is-expanded)>.activity-guide-toggle .activity-guide-toggle-number{background:rgba(248,247,239,.96)}
+@media(max-width:700px){
+  .activity-guide-card[data-guide-accordion]:not(.is-expanded){background-image:none!important;background-color:var(--guide-color,#eabbb1)}
+}
+
+/* Put each guide photo before its written guidance in the expanded panel. */
+.activity-guide-card[data-guide-accordion]>.activity-guide-panel{display:flex;flex-direction:column;align-items:stretch;justify-content:flex-start;gap:12px}
+.activity-guide-card[data-guide-accordion][data-guide-layout="steps"]>.activity-guide-panel{display:flex}
+.activity-guide-card[data-guide-accordion]>.activity-guide-panel>.activity-guide-image{width:100%;max-width:100%}
+.activity-guide-card[data-guide-accordion]>.activity-guide-panel>.activity-guide-image img{width:100%;max-height:44svh;aspect-ratio:16/9;object-fit:cover}
+.activity-guide-card[data-guide-accordion]>.activity-guide-panel>.activity-guide-copy{width:100%;max-width:none}
+.activity-guide-card[data-guide-accordion] .wc-step-content,.activity-guide-card[data-guide-accordion] .ramp-guide-content{display:flex;flex-direction:column;align-items:stretch;gap:12px}
+.activity-guide-card[data-guide-accordion] .wc-step-content>.activity-guide-image,.activity-guide-card[data-guide-accordion] .ramp-guide-content>.activity-guide-image{width:100%;max-width:100%;order:-1}
+.activity-guide-card[data-guide-accordion] .wc-step-content>.activity-guide-image img,.activity-guide-card[data-guide-accordion] .ramp-guide-content>.activity-guide-image img{width:100%;max-height:38svh;aspect-ratio:16/9;object-fit:cover}
+.activity-guide-card[data-guide-accordion] .wc-step-content>.activity-guide-copy,.activity-guide-card[data-guide-accordion] .ramp-guide-content>.activity-guide-copy{width:100%;max-width:none}
