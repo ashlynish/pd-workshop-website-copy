@@ -525,3 +525,38 @@ html,body{height:auto;min-height:100%;overflow-x:hidden;overflow-y:auto}
   flex:1 1 0;
   min-width:0;
 }
+
+
+/* Give every safety note one clear, recognizable callout treatment. */
+.activity-guide-instruction.safety{
+  padding:10px 12px;
+  border:1px solid #e4c77f;
+  border-left:5px solid #c18b32;
+  border-radius:10px;
+  background:#fff8e5;
+  color:#253a34;
+}
+.activity-guide-instruction.safety>strong{
+  display:flex;
+  align-items:center;
+  gap:8px;
+  margin-bottom:5px;
+  color:#654b1d;
+}
+.activity-guide-instruction.safety>strong::before{
+  content:"!";
+  display:inline-grid;
+  place-items:center;
+  flex:0 0 21px;
+  width:21px;
+  height:21px;
+  border-radius:50%;
+  background:#c18b32;
+  color:#fffdf6;
+  font-size:14px;
+  font-weight:900;
+  line-height:1;
+}
+.activity-guide-instruction.safety .instruction-points{
+  margin-top:4px;
+}
