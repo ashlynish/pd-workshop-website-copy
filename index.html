@@ -373,7 +373,9 @@ window.addEventListener('resize',()=>setValue(value));setValue(0);
     toggle.addEventListener('click',()=>{
       const shouldOpen=!card.classList.contains('is-expanded');
       cards.forEach(other=>{
+        const wasExpanded=other.classList.contains('is-expanded');
         const active=shouldOpen&&other===card;
+        if(wasExpanded&&!active)other.querySelectorAll('.wc-guide-step:not(.featured-first-step)').forEach(step=>{step.open=false});
         other.classList.toggle('is-expanded',active);
         const otherToggle=other.querySelector(':scope > .activity-guide-toggle');
         const otherPanel=other.querySelector(':scope > .activity-guide-panel');
