@@ -297,3 +297,10 @@ html,body{height:auto;min-height:100%;overflow-x:hidden;overflow-y:auto}
 /* Use blue for the Call button to match the softer activity palette. */
 #openCall{border-color:#a9c9dc;background:#edf5fa;color:#31566a}
 #openCall span{background:#a9c9dc;color:#fff}
+
+
+/* Keep the four helper actions in one compact row, in their reading order. */
+.header-actions{display:flex;flex-flow:row nowrap;align-items:center;justify-content:flex-start;gap:6px;white-space:nowrap}
+.header-action-row{display:contents}
+@media(max-width:700px){.header-actions{width:max-content;max-width:100%;gap:5px}.helper-action{flex:0 1 auto;min-width:0;padding-inline:7px;font-size:10px}}
+@media(max-width:380px){.header-actions{gap:3px}.helper-action{padding-inline:4px;font-size:8px}.helper-action span{width:15px;height:15px;font-size:10px}}
