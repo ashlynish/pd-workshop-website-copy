@@ -307,5 +307,56 @@ window.addEventListener('resize',()=>setValue(value));setValue(0);
   viewer.addEventListener('click',event=>{if(event.target===viewer)viewer.close();});
 })();
 </script>
+<script>
+(()=>{
+  const grid=document.querySelector('.activity-guide-grid');
+  if(!grid)return;
+  const cards=[...grid.querySelectorAll(':scope > .activity-guide-card')];
+  cards.forEach((card,index)=>{
+    const copy=card.querySelector('.wc-group-heading, .activity-guide-copy');
+    const title=copy?.querySelector('h3')?.textContent?.trim()||card.id.replace('Guide','');
+    const kicker=copy?.querySelector('.activity-guide-kicker')?.textContent?.trim()||'ACTIVITY '+index;
+    const number=(kicker.match(/ACTIVITY\s+(\d+)/i)||[])[1]||String(index);
+    const toggle=document.createElement('button');
+    const panel=document.createElement('div');
+    const expanded=index===0;
+    toggle.type='button';
+    toggle.className='activity-guide-toggle';
+    toggle.id=card.id+'Toggle';
+    toggle.setAttribute('aria-expanded',String(expanded));
+    toggle.setAttribute('aria-controls',card.id+'Panel');
+    toggle.innerHTML='<span class="activity-guide-toggle-number">Activity '+number+'</span><span class="activity-guide-toggle-title"></span><span class="activity-guide-toggle-icon" aria-hidden="true"></span>';
+    toggle.querySelector('.activity-guide-toggle-title').textContent=title;
+    panel.className='activity-guide-panel';
+    panel.id=card.id+'Panel';
+    panel.setAttribute('role','region');
+    panel.setAttribute('aria-labelledby',toggle.id);
+    if(card.querySelector('.wc-group-heading'))card.dataset.guideLayout='steps';
+    while(card.firstChild)panel.append(card.firstChild);
+    panel.hidden=!expanded;
+    card.dataset.guideAccordion='';
+    card.classList.toggle('is-expanded',expanded);
+    card.append(toggle,panel);
+    toggle.addEventListener('click',()=>{
+      if(card.classList.contains('is-expanded'))return;
+      cards.forEach(other=>{
+        const active=other===card;
+        other.classList.toggle('is-expanded',active);
+        const otherToggle=other.querySelector(':scope > .activity-guide-toggle');
+        const otherPanel=other.querySelector(':scope > .activity-guide-panel');
+        otherToggle?.setAttribute('aria-expanded',String(active));
+        if(otherPanel)otherPanel.hidden=!active;
+      });
+    });
+  });
+  document.addEventListener('click',event=>{
+    const circle=event.target.closest?.('.map .circle');
+    if(!circle)return;
+    const card=document.getElementById(circle.dataset.guideTarget);
+    const toggle=card?.querySelector(':scope > .activity-guide-toggle');
+    if(toggle&&!card.classList.contains('is-expanded'))toggle.click();
+  });
+})();
+</script>
 </body></html>
 
