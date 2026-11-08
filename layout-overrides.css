@@ -248,3 +248,26 @@ html,body{height:auto;min-height:100%;overflow-x:hidden;overflow-y:auto}
 /* Keep both quick-action rows on shared columns. */
 .header-actions{display:grid;grid-template-columns:max-content max-content;grid-auto-flow:row;align-items:start;justify-content:start;column-gap:6px;row-gap:6px}
 .header-action-row{display:contents}
+
+/* Distinct station colors, matched across map circles, route badges, and guide cards. */
+.map .c-look{background:#84c6eb}
+.map .c-route-ramps{background:#f2a66a}
+.map .c-ramp{background:#b39ae0}
+.map .c-door{background:#e8798b}
+.map .c-calm{background:#aeb9c5}
+.map .c-wc{background:#d3d96f}
+.map .c-drink{background:#e2be55}
+.sequence-step[data-circle="c-look"] .step-number{background:#84c6eb;color:#244252}
+.sequence-step[data-circle="c-route-ramps"] .step-number{background:#f2a66a;color:#4b3424}
+.sequence-step[data-circle="c-ramp"] .step-number{background:#b39ae0;color:#382b49}
+.sequence-step[data-circle="c-door"] .step-number{background:#e8798b;color:#4a2930}
+.sequence-step[data-circle="c-calm"] .step-number{background:#aeb9c5;color:#354148}
+.sequence-group-label .step-number-wc,.sequence-step[data-circle="c-wc"] .step-number{background:#d3d96f;color:#424520}
+.sequence-step[data-circle="c-drink"] .step-number{background:#e2be55;color:#4b3d1f}
+.activity-guide-look,.activity-guide-look-group{--guide-color:#84c6eb}
+.activity-guide-route-ramps,.activity-guide-ramp-group{--guide-color:#f2a66a}
+.activity-guide-ramp{--guide-color:#b39ae0}
+.activity-guide-door{--guide-color:#e8798b}
+.activity-guide-calm{--guide-color:#aeb9c5}
+.activity-guide-wc,.activity-guide-wc-group{--guide-color:#d3d96f}
+.activity-guide-drink{--guide-color:#e2be55}
