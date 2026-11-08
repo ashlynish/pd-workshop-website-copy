@@ -447,3 +447,12 @@ html,body{height:auto;min-height:100%;overflow-x:hidden;overflow-y:auto}
 .activity-guide-intro .activity-guide-kicker{margin:0 0 3px}
 .activity-guide-intro h3{margin:0 0 8px;color:#273a34;font-size:clamp(18px,1.5vw,22px);line-height:1.1}
 .activity-guide-intro .activity-guide-instruction{margin-top:0}
+
+
+/* Give an opened phone tab a wider reading area and keep its neighbors in view. */
+@media(max-width:700px){
+  .activity-guide-card[data-guide-accordion].is-expanded{flex:0 0 min(68vw,520px);min-width:min(68vw,520px)}
+}
+@media(max-width:380px){
+  .activity-guide-card[data-guide-accordion].is-expanded{flex-basis:min(68vw,520px);min-width:min(68vw,520px)}
+}
