@@ -50,7 +50,7 @@ html,body{height:auto;min-height:100%;overflow-x:hidden;overflow-y:auto}
   <div class="activity-guides-heading"><h2 id="activityGuidesTitle">Activity Guides</h2><button class="print-guides-button" id="printQuickGuide" type="button">Print quick guide</button></div>
   <div class="activity-guide-grid">
     <article class="activity-guide-card activity-guide-zone-start" id="activity0Guide" tabindex="-1">
-        <figure class="activity-guide-image"><img src="assets/activity-images/activity-0-leave-wc-zone.jpg" alt="Wheelchair users leaving the wheelchair zone"><figcaption>Leaving the wheelchair zone</figcaption></figure>
+        <figure class="activity-guide-image"><img src="assets/activity-images/activity-0-leave-wc-zone.jpg" alt="Wheelchair users leaving the wheelchair zone"><figcaption>Leaving the wheelchair zone</figcaption></figure><div class="participant-intro-video"><video controls playsinline preload="metadata" aria-label="Participant introduction video"><source src="assets/videos/wc-workshop-draft-4-compressed.mp4" type="video/mp4">Your browser does not support HTML video.</video><p>Workshop introduction</p></div>
         <div class="activity-guide-copy"><p class="activity-guide-kicker">ACTIVITY 0</p><h3>Leave wheelchair zone</h3>
           <div class="activity-guide-instruction"><strong>Guide the activity</strong><ol class="instruction-points"><li>Guide the participant to leave the wheelchair zone.</li><li>Optional: with the participant’s agreement, add removable red tape to their trouser legs as a visual cue. Do not apply tape directly to skin.</li></ol></div>
           <div class="activity-guide-instruction"><strong>Ask them to notice</strong><p>Notice the space and steps involved in starting the route.</p></div>
@@ -354,6 +354,7 @@ window.addEventListener('resize',()=>setValue(value));setValue(0);
     if(card.querySelector('.wc-group-heading'))card.dataset.guideLayout='steps';
     if(!card.dataset.guideLayout){
       const photo=card.querySelector(':scope > .activity-guide-image');
+      const introVideo=card.querySelector(':scope > .participant-intro-video');
       const copyBlock=card.querySelector(':scope > .activity-guide-copy');
       const guideInstruction=copyBlock?.querySelector(':scope > .activity-guide-instruction');
       if(photo&&copyBlock&&guideInstruction){
@@ -363,7 +364,7 @@ window.addEventListener('resize',()=>setValue(value));setValue(0);
         const heading=copyBlock.querySelector(':scope > h3');
         if(kicker)intro.append(kicker);
         if(heading)intro.append(heading);
-        panel.append(intro,photo,copyBlock);
+        panel.append(intro,...(introVideo?[introVideo]:[]),photo,copyBlock);
       }
     }
     while(card.firstChild)panel.append(card.firstChild);

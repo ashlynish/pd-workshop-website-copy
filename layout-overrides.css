@@ -921,3 +921,9 @@ html,body{height:auto;min-height:100%;overflow-x:hidden;overflow-y:auto}
 
 /* Leave a clear gap between helper actions and the activity map. */
 .map{margin-top:14px}
+
+/* Participant introduction video in Activity 0 */
+#activity0Guide .participant-intro-video{width:100%;margin:0 auto;text-align:center}
+#activity0Guide .participant-intro-video video{display:block;width:100%;max-height:70svh;aspect-ratio:16/9;object-fit:contain;border-radius:12px;background:#172823}
+#activity0Guide .participant-intro-video p{margin:6px 0 0;color:#62746d;font-size:.9rem;text-align:center}
+@media print{#activity0Guide .participant-intro-video{display:none!important}}
