@@ -917,3 +917,7 @@ html,body{height:auto;min-height:100%;overflow-x:hidden;overflow-y:auto}
 .map .circle{top:calc(var(--y)*1.111111% - 11.111111%)}
 .map .circle.c-zone[data-guide-target="activity0Guide"],
 .map .circle.c-zone[data-guide-target="activity8Guide"]{top:57.4778%}
+
+
+/* Leave a clear gap between helper actions and the activity map. */
+.map{margin-top:14px}
