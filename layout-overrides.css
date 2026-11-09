@@ -934,3 +934,5 @@ html,body{height:auto;min-height:100%;overflow-x:hidden;overflow-y:auto}
 .video-dialog-close{position:absolute;z-index:1;top:max(14px,env(safe-area-inset-top));right:max(14px,env(safe-area-inset-right));display:grid;place-items:center;width:46px;height:46px;border:1px solid rgba(255,255,255,.6);border-radius:50%;background:rgba(22,37,33,.82);color:#fff;font:400 32px/1 Arial,sans-serif;cursor:pointer;touch-action:manipulation}
 .video-dialog-close:focus-visible,.video-action:focus-visible{outline:3px solid #1677ff;outline-offset:3px}
 @media(max-width:700px){.video-dialog-close{width:48px;height:48px}}
+.video-loading{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);margin:0;color:#fff;font:600 15px/1.4 Arial,sans-serif;text-align:center;pointer-events:none}.video-loading[hidden]{display:none!important}
+
