@@ -911,3 +911,9 @@ html,body{height:auto;min-height:100%;overflow-x:hidden;overflow-y:auto}
     transition-duration:.01ms!important;
   }
 }
+
+/* Crop 10% from the map's unused top area while keeping station spacing and X positions unchanged. */
+.map{aspect-ratio:2.611111}
+.map .circle{top:calc(var(--y)*1.111111% - 11.111111%)}
+.map .circle.c-zone[data-guide-target="activity0Guide"],
+.map .circle.c-zone[data-guide-target="activity8Guide"]{top:57.4778%}
