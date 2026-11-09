@@ -12,3 +12,6 @@
 
 #openWelcomeGuide,#openGuide{background:#e5f0eb;border-color:#77a99a;color:#294b42}
 #openWelcomeGuide>span,#openGuide>span{background:#77a99a;color:#fff}
+
+.welcome-guide-access{gap:8px}
+
