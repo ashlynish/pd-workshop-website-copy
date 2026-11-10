@@ -959,3 +959,105 @@ html,body{height:auto;min-height:100%;overflow-x:hidden;overflow-y:auto}
 .video-dialog-close{position:absolute;z-index:1;top:max(14px,env(safe-area-inset-top));right:max(14px,env(safe-area-inset-right));display:grid;place-items:center;width:46px;height:46px;border:1px solid rgba(255,255,255,.6);border-radius:50%;background:rgba(22,37,33,.82);color:#fff;font:400 32px/1 Arial,sans-serif;cursor:pointer;touch-action:manipulation}
 .video-dialog-close:focus-visible,.video-action:focus-visible{outline:3px solid #1677ff;outline-offset:3px}
 @media(max-width:700px){.video-dialog-close{width:48px;height:48px}}
+
+/* Three iOS-style destinations: map, helper actions, and activity guides. */
+.page{
+  display:flex;
+  flex-direction:column;
+  align-items:stretch;
+  gap:16px;
+  width:100%;
+  height:auto;
+  min-height:100svh;
+  max-width:none;
+  overflow:visible;
+  padding:calc(env(safe-area-inset-top) + 14px) 16px calc(env(safe-area-inset-bottom) + 108px);
+}
+.page>.header{
+  display:block;
+  flex:0 0 auto;
+  width:100%;
+  padding:0;
+}
+.page .brand{font-size:clamp(14px,3vw,20px)}
+.page .brand small{font-size:clamp(11px,2.4vw,14px)}
+.app-tab-panel[hidden]{display:none!important}
+.app-tab-panel{width:100%;min-width:0}
+.map-tab-panel{display:flex;flex-direction:column;align-items:stretch;gap:10px}
+.page .map{
+  position:relative;
+  align-self:center;
+  justify-self:auto;
+  width:min(100%,1000px);
+  height:auto;
+  min-height:0;
+  max-height:none;
+  aspect-ratio:1.89;
+  margin:0 auto;
+  transform:none;
+  border-radius:24px;
+}
+.map-side-note{position:static;display:flex;justify-content:center;align-self:stretch;min-height:0;margin:0}
+.map-hint{position:static;width:auto;text-align:center;font-size:clamp(12px,2.8vw,16px)}
+.helper-tab-panel{width:min(100%,760px);margin:clamp(12px,5vh,40px) auto 0;padding:clamp(18px,5vw,32px);border:1px solid rgba(52,78,67,.14);border-radius:24px;background:rgba(255,255,255,.48)}
+.helper-tab-panel h1{margin:0;color:#283a34;font-size:clamp(24px,6vw,34px)}
+.helper-tab-description{margin:8px 0 20px;color:#62746d;font-size:clamp(14px,3.5vw,18px)}
+.helper-tab-panel .header-tools{display:block;position:static;width:auto;max-width:none;margin:0;padding:0}
+.helper-tab-panel .header-actions{display:flex;flex-flow:row wrap;align-items:center;justify-content:flex-start;gap:10px;max-width:100%;margin:0;white-space:normal}
+.helper-tab-panel .header-action-row{display:contents}
+.helper-tab-panel .helper-action{flex:0 1 auto;min-width:0}
+#activitiesTabPanel.activity-guides{width:min(100%,1000px);max-width:1000px;margin:0 auto}
+.app-tab-bar{
+  position:fixed;
+  z-index:100;
+  right:0;
+  bottom:calc(env(safe-area-inset-bottom) + 12px);
+  left:0;
+  display:grid;
+  grid-template-columns:repeat(3,minmax(0,1fr));
+  width:min(calc(100vw - 28px),420px);
+  min-height:72px;
+  margin:0 auto;
+  padding:7px;
+  border:1px solid rgba(52,78,67,.12);
+  border-radius:26px;
+  background:rgba(250,249,244,.92);
+  box-shadow:0 8px 28px rgba(39,58,52,.14);
+  -webkit-backdrop-filter:blur(18px) saturate(1.35);
+  backdrop-filter:blur(18px) saturate(1.35);
+}
+.app-tab{
+  display:grid;
+  grid-template-rows:25px auto;
+  align-content:center;
+  justify-items:center;
+  gap:3px;
+  min-width:0;
+  min-height:56px;
+  padding:5px 3px;
+  border:0;
+  border-radius:19px;
+  background:transparent;
+  color:#71877d;
+  font:600 11px/1.1 -apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
+  cursor:pointer;
+  touch-action:manipulation;
+  -webkit-tap-highlight-color:transparent;
+}
+.app-tab svg{width:23px;height:23px;fill:none;stroke:currentColor;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+.app-tab.is-selected{background:#e5f0eb;color:#2f6b5c}
+.app-tab:focus-visible{outline:3px solid #417f70;outline-offset:1px}
+.activity-guide-card[data-guide-accordion]{scroll-margin-bottom:100px}
+@media(max-width:700px){
+  .page{gap:14px;padding-right:12px;padding-left:12px}
+  .page>.header{min-height:0}
+  .page .map{width:100%;aspect-ratio:1.5;border-radius:20px}
+  .helper-tab-panel{margin-top:4vh}
+  #activitiesTabPanel.activity-guides{margin-top:0}
+  .app-tab-bar{min-height:70px}
+}
+@media(max-width:360px){
+  .app-tab-bar{width:calc(100vw - 20px);bottom:calc(env(safe-area-inset-bottom) + 8px)}
+  .app-tab{font-size:10px}
+}
+@media(prefers-reduced-motion:reduce){.app-tab-bar{scroll-behavior:auto}}
