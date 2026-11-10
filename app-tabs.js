@@ -20,13 +20,7 @@
   helperPanel.className = 'app-tab-panel helper-tab-panel';
   helperPanel.id = 'helperTabPanel';
   helperPanel.setAttribute('role', 'tabpanel');
-  helperPanel.setAttribute('aria-labelledby', 'helperTabHeading');
-  const helperHeading = document.createElement('h1');
-  helperHeading.id = 'helperTabHeading';
-  helperHeading.textContent = 'Helper tools';
-  const helperDescription = document.createElement('p');
-  helperDescription.className = 'helper-tab-description';
-  helperDescription.textContent = 'Quick actions for guiding the workshop.';
+  helperPanel.setAttribute('aria-label', 'Helper quick actions');
   const actions = headerTools.querySelector('.header-actions');
   if (actions) {
     const groups = [
@@ -47,7 +41,7 @@
       return row;
     }));
   }
-  helperPanel.append(helperHeading, helperDescription, headerTools);
+  helperPanel.append(headerTools);
   activityGuides.parentNode.insertBefore(helperPanel, activityGuides);
 
   const printButton = document.getElementById('printQuickGuide');
