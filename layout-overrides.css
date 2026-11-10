@@ -1252,3 +1252,17 @@ body:has(#workshopPage:not([hidden])){height:100dvh;overflow:hidden}
   #activitiesTabPanel .activity-guide-card[data-guide-accordion]{display:block!important}
   #activitiesTabPanel .activity-guide-card>.activity-guide-panel[hidden]{display:block!important}
 }
+
+/* Make station labels and tap targets easier to read at phone sizes. */
+.map .circle{width:clamp(54px,6vw,72px);padding:6px}
+.map .circle span{font-size:11px;line-height:1.08}
+.map .circle span small{font-size:14px}
+@media(max-width:700px){
+  .page .map .circle{width:clamp(40px,8.4vw,50px);padding:3px}
+  .page .map .circle span{font-size:8.2px;line-height:1.05;overflow-wrap:normal}
+  .page .map .circle span small{font-size:12px}
+}
+@media(max-width:380px){
+  .page .map .circle{width:40px}
+  .page .map .circle span{font-size:8px}
+}

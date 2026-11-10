@@ -67,7 +67,7 @@
       <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m3 6 6-3 6 3 6-3v15l-6 3-6-3-6 3V6Z"/><path d="M9 3v15m6-12v15"/></svg><span>Map</span>
     </button>
     <button class="app-tab" id="helpersTab" type="button" role="tab" aria-selected="false" aria-controls="helperTabPanel" data-app-tab="helpers" tabindex="-1">
-      <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="8" r="3.2"/><path d="M5 20c.4-3.5 3.2-5.5 7-5.5s6.6 2 7 5.5"/><circle cx="12" cy="12" r="10"/></svg><span>Important</span>
+      <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 7.5v5.2"/><circle cx="12" cy="16.5" r=".7" fill="currentColor" stroke="none"/></svg><span>Important</span>
     </button>
     <button class="app-tab" id="activitiesTab" type="button" role="tab" aria-selected="false" aria-controls="activitiesTabPanel" data-app-tab="activities" tabindex="-1">
       <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 6h11M9 12h11M9 18h11"/><path d="m3 6 1.2 1.2L6.5 5m-3.5 7 1.2 1.2L6.5 11m-3.5 7 1.2 1.2L6.5 17"/></svg><span>Activities</span>
