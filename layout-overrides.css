@@ -1154,3 +1154,101 @@ body:has(#workshopPage:not([hidden])){height:100dvh;overflow:hidden}
 .helper-tab-panel .helper-action>span{flex-basis:1.5em;width:1.5em;height:1.5em;font-size:.9em}
 .helper-tool-row:last-child .video-action{flex:0 0 clamp(64px,12vh,90px);width:clamp(64px,12vh,90px);min-width:clamp(64px,12vh,90px);height:clamp(64px,12vh,90px);padding:0}
 .activity-guides-heading .print-icon-button{top:0}
+
+/* Keep the activity area to one vertical reading flow with a compact horizontal selector. */
+#activitiesTabPanel.activity-guides{
+  display:block;
+  width:100%;
+  max-width:none;
+  height:100%;
+  min-height:0;
+  overflow-x:hidden;
+  overflow-y:auto;
+  overscroll-behavior:contain;
+}
+#activitiesTabPanel .activity-guide-tablist{
+  display:grid;
+  grid-template-columns:repeat(9,minmax(0,1fr));
+  gap:clamp(3px,1vw,8px);
+  width:100%;
+  margin:12px 0;
+  padding:5px;
+  box-sizing:border-box;
+  border:1px solid rgba(52,78,67,.14);
+  border-radius:18px;
+  background:rgba(255,255,255,.54);
+}
+#activitiesTabPanel .activity-guide-tablist .activity-guide-toggle{
+  display:grid;
+  place-items:center;
+  min-width:0;
+  min-height:clamp(40px,9vw,54px);
+  padding:4px;
+  border:1px solid rgba(52,78,67,.14);
+  border-radius:13px;
+  background:rgba(230,237,231,.72);
+  color:#283a34;
+  cursor:pointer;
+  font:inherit;
+  touch-action:manipulation;
+}
+#activitiesTabPanel .activity-guide-tablist .activity-guide-toggle[aria-selected="true"]{
+  border-color:var(--guide-color,#8eb7ab);
+  background:var(--guide-color,#dcebe4);
+  box-shadow:0 2px 7px rgba(40,58,52,.12);
+}
+#activitiesTabPanel .activity-guide-tablist .activity-guide-toggle-number{
+  display:grid;
+  place-items:center;
+  width:clamp(28px,7vw,40px);
+  height:clamp(28px,7vw,40px);
+  min-width:0;
+  border-radius:50%;
+  background:rgba(255,255,255,.84);
+  color:#283a34;
+  font-size:clamp(14px,3.7vw,19px);
+  font-weight:800;
+  letter-spacing:0;
+  line-height:1;
+}
+#activitiesTabPanel .activity-guide-tablist .activity-guide-toggle-title,
+#activitiesTabPanel .activity-guide-tablist .activity-guide-toggle-icon{display:none!important}
+#activitiesTabPanel .activity-guide-tablist .activity-guide-toggle:focus-visible{outline:3px solid #417f70;outline-offset:2px}
+#activitiesTabPanel .activity-guide-grid{
+  display:block!important;
+  width:100%;
+  max-width:none;
+  height:auto!important;
+  min-height:0!important;
+  max-height:none!important;
+  overflow:visible!important;
+  padding:0 0 12px!important;
+  scroll-snap-type:none;
+}
+#activitiesTabPanel .activity-guide-card[data-guide-accordion]{display:none!important}
+#activitiesTabPanel .activity-guide-card[data-guide-accordion].is-expanded{
+  display:block!important;
+  width:100%;
+  min-width:0;
+  max-width:none;
+  height:auto!important;
+  min-height:0;
+  max-height:none;
+  overflow:visible!important;
+  scroll-snap-align:none;
+}
+#activitiesTabPanel .activity-guide-card[data-guide-accordion]>.activity-guide-panel:not([hidden]){
+  display:flex;
+  flex-direction:column;
+  width:100%;
+  height:auto!important;
+  min-height:0;
+  max-height:none;
+  overflow:visible!important;
+}
+#activitiesTabPanel .activity-guide-card[data-guide-accordion]>.activity-guide-panel[hidden]{display:none!important}
+@media print{
+  #activitiesTabPanel .activity-guide-tablist{display:none!important}
+  #activitiesTabPanel .activity-guide-card[data-guide-accordion]{display:block!important}
+  #activitiesTabPanel .activity-guide-card>.activity-guide-panel[hidden]{display:block!important}
+}

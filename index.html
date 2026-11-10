@@ -305,6 +305,12 @@ const emergencyDialog=document.getElementById('emergencyDialog'),callDialog=docu
   const grid=document.querySelector('.activity-guide-grid');
   if(!grid)return;
   const cards=[...grid.querySelectorAll(':scope > .activity-guide-card')];
+  const tablist=document.createElement('div');
+  tablist.className='activity-guide-tablist';
+  tablist.setAttribute('role','tablist');
+  tablist.setAttribute('aria-label','Choose an activity guide');
+  grid.before(tablist);
+  const toggles=new Map();
   grid.classList.add('has-expanded');
   cards.forEach((card,index)=>{
     const copy=card.querySelector('.wc-group-heading, .activity-guide-copy');
@@ -335,14 +341,18 @@ const emergencyDialog=document.getElementById('emergencyDialog'),callDialog=docu
     toggle.type='button';
     toggle.className='activity-guide-toggle';
     toggle.id=card.id+'Toggle';
+    toggle.setAttribute('role','tab');
+    toggle.setAttribute('aria-selected',String(expanded));
+    toggle.tabIndex=expanded?0:-1;
     toggle.setAttribute('aria-expanded',String(expanded));
     toggle.setAttribute('aria-label',expanded?'Activity '+number+': '+title+', expanded':'Open Activity '+number+': '+title);
     toggle.setAttribute('aria-controls',card.id+'Panel');
+    toggle.style.setProperty('--guide-color',getComputedStyle(card).getPropertyValue('--guide-color').trim());
     toggle.innerHTML='<span class="activity-guide-toggle-number">'+number+'</span><span class="activity-guide-toggle-title"></span><span class="activity-guide-toggle-icon" aria-hidden="true"></span>';
     toggle.querySelector('.activity-guide-toggle-title').textContent=title;
     panel.className='activity-guide-panel';
     panel.id=card.id+'Panel';
-    panel.setAttribute('role','region');
+    panel.setAttribute('role','tabpanel');
     panel.setAttribute('aria-labelledby',toggle.id);
     if(card.querySelector('.wc-group-heading'))card.dataset.guideLayout='steps';
     if(!card.dataset.guideLayout){
@@ -363,7 +373,9 @@ const emergencyDialog=document.getElementById('emergencyDialog'),callDialog=docu
     panel.hidden=!expanded;
     card.dataset.guideAccordion='';
     card.classList.toggle('is-expanded',expanded);
-    card.append(toggle,panel);
+    card.append(panel);
+    tablist.append(toggle);
+    toggles.set(card,toggle);
     toggle.addEventListener('click',()=>{
       const shouldOpen=!card.classList.contains('is-expanded');
       grid.classList.toggle('has-expanded',shouldOpen);
@@ -376,23 +388,29 @@ const emergencyDialog=document.getElementById('emergencyDialog'),callDialog=docu
           if(otherPanel)otherPanel.scrollTop=0;
         }
         other.classList.toggle('is-expanded',active);
-        const otherToggle=other.querySelector(':scope > .activity-guide-toggle');
+        const otherToggle=toggles.get(other);
+        otherToggle?.setAttribute('aria-selected',String(active));
+        if(otherToggle)otherToggle.tabIndex=active?0:-1;
         otherToggle?.setAttribute('aria-expanded',String(active));
         if(otherToggle){const n=otherToggle.querySelector('.activity-guide-toggle-number')?.textContent||'';const t=otherToggle.querySelector('.activity-guide-toggle-title')?.textContent||'guide';otherToggle.setAttribute('aria-label',active?'Activity '+n+': '+t+', expanded':'Open Activity '+n+': '+t);}
         if(otherPanel)otherPanel.hidden=!active;
       });
-      if(shouldOpen)window.setTimeout(()=>{
-        const cardRect=card.getBoundingClientRect();
-        const gridRect=grid.getBoundingClientRect();
-        grid.scrollTo({left:grid.scrollLeft+cardRect.left-gridRect.left-(grid.clientWidth-card.clientWidth)/2,behavior:window.matchMedia('(prefers-reduced-motion: reduce)').matches?'auto':'smooth'});
-      },350);
+    });
+    toggle.addEventListener('keydown',event=>{
+      if(!['ArrowLeft','ArrowRight','Home','End'].includes(event.key))return;
+      event.preventDefault();
+      const current=[...tablist.children].indexOf(toggle);
+      const next=event.key==='Home'?0:event.key==='End'?cards.length-1:(current+(event.key==='ArrowRight'?1:cards.length-1))%cards.length;
+      const nextToggle=tablist.children[next];
+      nextToggle?.focus();
+      nextToggle?.click();
     });
   });
   document.addEventListener('click',event=>{
     const circle=event.target.closest?.('.map .circle');
     if(!circle)return;
     const card=document.getElementById(circle.dataset.guideTarget);
-    const toggle=card?.querySelector(':scope > .activity-guide-toggle');
+    const toggle=card&&toggles.get(card);
     if(toggle&&!card.classList.contains('is-expanded'))toggle.click();
   });
   const printButton=document.getElementById('printQuickGuide');
