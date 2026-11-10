@@ -26,6 +26,20 @@
   padding:0;
   overflow:hidden;
 }
+.welcome-screen::before{
+  content:"";
+  position:absolute;
+  z-index:0;
+  top:clamp(-180px,-19vh,-92px);
+  left:50%;
+  width:min(84vw,68vh);
+  aspect-ratio:1;
+  transform:translateX(-50%);
+  border:1px solid rgba(102,141,131,.17);
+  border-radius:50%;
+  box-shadow:0 0 0 13px rgba(119,189,177,.035),0 0 0 14px rgba(102,141,131,.13),0 0 0 30px rgba(119,189,177,.03),0 0 0 31px rgba(102,141,131,.1),0 0 0 50px rgba(119,189,177,.025),0 0 0 51px rgba(102,141,131,.07);
+  pointer-events:none;
+}
 .welcome-card{
   position:relative;
   z-index:1;
@@ -50,7 +64,6 @@
   .welcome-eyebrow{margin-top:clamp(32px,8vh,56px)}
   .welcome-copy{margin-top:12px}
   .welcome-guide-access{margin-bottom:10px}
-  .tap-open-prompt{margin-bottom:calc(env(safe-area-inset-bottom) + 16px)}
 }
 @media(max-width:360px){.tap-open-prompt{font-size:clamp(22px,6vw,28px)}}
 
