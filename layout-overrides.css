@@ -1061,3 +1061,69 @@ html,body{height:auto;min-height:100%;overflow-x:hidden;overflow-y:auto}
   .app-tab{font-size:10px}
 }
 @media(prefers-reduced-motion:reduce){.app-tab-bar{scroll-behavior:auto}}
+
+/* Keep the app inside the phone viewport and let each destination manage its own scroll. */
+body:has(#workshopPage:not([hidden])){height:100dvh;overflow:hidden}
+.page{height:100dvh;min-height:0;overflow:hidden}
+.page>.header{display:flex;align-items:flex-start;justify-content:space-between;gap:12px}
+.app-tab-panel{flex:1 1 auto;min-height:0;overflow:auto;overscroll-behavior:contain;scrollbar-width:none}
+.app-tab-panel::-webkit-scrollbar,.activity-guide-grid::-webkit-scrollbar,.activity-guide-panel::-webkit-scrollbar{display:none}
+.map-tab-panel{justify-content:center;overflow:hidden}
+.helper-tab-panel{
+  width:100%;
+  margin:0;
+  padding:clamp(8px,2vw,18px) 0;
+  border:0;
+  border-radius:0;
+  background:transparent;
+}
+.helper-tab-panel .header-tools{width:100%}
+.helper-tab-panel .header-actions{display:flex;flex-direction:column;align-items:stretch;gap:14px;width:100%}
+.helper-tool-row{display:flex;align-items:center;gap:12px;min-height:48px}
+.helper-tool-row .helper-action{min-height:48px}
+.helper-tool-row:not(:last-child) .helper-action{width:min(100%,320px);justify-content:flex-start}
+.helper-tool-row:last-child .helper-action{justify-content:center}
+.helper-tool-row:last-child .guide-action{width:min(100%,260px)}
+.helper-tool-row:last-child .video-action{width:48px;min-width:48px;height:48px;padding:0}
+.print-icon-button{
+  display:grid;
+  flex:0 0 44px;
+  place-items:center;
+  width:44px;
+  height:44px;
+  min-height:44px;
+  margin:0;
+  padding:0;
+  border:1px solid #8eb7ab;
+  border-radius:50%;
+  background:#eaf3ee;
+  color:#315c51;
+  cursor:pointer;
+  -webkit-tap-highlight-color:transparent;
+}
+.print-icon-button svg{width:22px;height:22px;fill:none;stroke:currentColor;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+.print-icon-button:focus-visible{outline:3px solid #417f70;outline-offset:2px}
+.activity-guides-heading{position:relative;padding-right:54px}
+.activity-guides-heading .print-icon-button{position:absolute;top:0;right:0}
+#activitiesTabPanel.activity-guides{
+  display:flex;
+  flex-direction:column;
+  height:100%;
+  overflow:hidden;
+}
+#activitiesTabPanel .activity-guide-grid{flex:1 1 auto;min-height:0}
+@media(max-width:700px){
+  .page{height:100dvh;gap:10px;padding:calc(env(safe-area-inset-top) + 10px) 12px calc(env(safe-area-inset-bottom) + 96px)}
+  .page>.header{min-height:0}
+  .page .map{width:100%;aspect-ratio:1.5}
+  .map-tab-panel{gap:6px}
+  .helper-tab-panel{margin:0;padding:8px 0}
+  .helper-tab-panel h1{font-size:clamp(22px,6vw,30px)}
+  .helper-tab-description{margin:5px 0 14px;font-size:15px}
+  .helper-tab-panel .header-actions{gap:10px}
+  .helper-tool-row{min-height:44px}
+  .helper-tool-row .helper-action{min-height:44px}
+  .helper-tool-row:last-child .video-action{width:44px;min-width:44px;height:44px}
+  #activitiesTabPanel .activity-guide-grid{height:auto;min-height:0;max-height:none;padding-bottom:0}
+  .app-tab-bar{min-height:66px}
+}

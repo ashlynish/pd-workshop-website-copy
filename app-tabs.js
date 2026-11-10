@@ -27,8 +27,37 @@
   const helperDescription = document.createElement('p');
   helperDescription.className = 'helper-tab-description';
   helperDescription.textContent = 'Quick actions for guiding the workshop.';
+  const actions = headerTools.querySelector('.header-actions');
+  if (actions) {
+    const groups = [
+      ['openEmergency'],
+      ['openFeedback'],
+      ['openCall'],
+      ['openGuide', 'openIntroVideo'],
+    ];
+    actions.replaceChildren(...groups.map((ids, index) => {
+      const row = document.createElement('div');
+      row.className = 'helper-tool-row';
+      row.setAttribute('role', 'group');
+      row.setAttribute('aria-label', ['Precaution', 'Feedback', 'Call', 'Guide and video'][index]);
+      ids.forEach(id => {
+        const button = document.getElementById(id);
+        if (button) row.append(button);
+      });
+      return row;
+    }));
+  }
   helperPanel.append(helperHeading, helperDescription, headerTools);
   activityGuides.parentNode.insertBefore(helperPanel, activityGuides);
+
+  const printButton = document.getElementById('printQuickGuide');
+  if (printButton) {
+    printButton.classList.add('print-icon-button');
+    printButton.setAttribute('aria-label', 'Print quick guide');
+    printButton.title = 'Print quick guide';
+    printButton.textContent = '';
+    printButton.innerHTML = '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 8V3h10v5M6 17H4V9h16v8h-2"/><path d="M7 14h10v7H7zM17 11h.01"/></svg>';
+  }
 
   activityGuides.id = 'activitiesTabPanel';
   activityGuides.classList.add('app-tab-panel');
@@ -51,6 +80,7 @@
     </button>`;
   app.append(nav);
 
+  nav.insertBefore(nav.querySelector('#activitiesTab'), nav.querySelector('#helpersTab'));
   const tabs = [...nav.querySelectorAll('[role="tab"]')];
   const panels = [mapPanel, helperPanel, activityGuides];
   function activateTab(name, { scroll = true } = {}) {
