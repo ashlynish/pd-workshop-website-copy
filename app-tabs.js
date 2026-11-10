@@ -108,8 +108,8 @@
 
   const welcome = document.getElementById('welcomeScreen');
   const welcomeAccess = welcome?.querySelector('.welcome-guide-access');
-  const slider = document.getElementById('unlockSlider');
-  if (welcomeAccess && slider) slider.before(welcomeAccess);
+  const tapOpenPrompt = document.getElementById('tapOpenPrompt');
+  if (welcomeAccess && tapOpenPrompt) tapOpenPrompt.before(welcomeAccess);
 
   activateTab('map', { scroll: false });
 })();
