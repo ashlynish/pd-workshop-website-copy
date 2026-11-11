@@ -1266,3 +1266,15 @@ body:has(#workshopPage:not([hidden])){height:100dvh;overflow:hidden}
   .page .map .circle{width:44px}
   .page .map .circle span{font-size:8px}
 }
+
+/* Keep every accordion plus centered as its circle resizes across breakpoints. */
+.wc-guide-step>summary .wc-step-toggle{justify-self:center;flex:none}
+.wc-step-toggle::before,.wc-step-toggle::after{
+  left:50%;
+  right:auto;
+  top:50%;
+  width:10px;
+  transform:translate(-50%,-50%);
+}
+.wc-step-toggle::after{transform:translate(-50%,-50%) rotate(90deg)}
+
