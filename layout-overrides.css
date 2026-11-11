@@ -1278,3 +1278,6 @@ body:has(#workshopPage:not([hidden])){height:100dvh;overflow:hidden}
 }
 .wc-step-toggle::after{transform:translate(-50%,-50%) rotate(90deg)}
 
+/* Lift the print control slightly without changing the responsive layout. */
+.print-guides-button{transform:translateY(-14px)}
+
