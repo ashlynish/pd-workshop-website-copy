@@ -1087,11 +1087,12 @@ body:has(#workshopPage:not([hidden])){height:100dvh;overflow:hidden}
 .helper-tool-row:last-child .video-action{width:48px;min-width:48px;height:48px;padding:0}
 .print-icon-button{
   display:grid;
-  flex:0 0 44px;
+  box-sizing:border-box;
+  flex:0 0 48px;
   place-items:center;
-  width:44px;
-  height:44px;
-  min-height:44px;
+  width:48px;
+  height:48px;
+  min-height:48px;
   margin:0;
   padding:0;
   border:1px solid #8eb7ab;
@@ -1103,8 +1104,9 @@ body:has(#workshopPage:not([hidden])){height:100dvh;overflow:hidden}
 }
 .print-icon-button svg{width:22px;height:22px;fill:none;stroke:currentColor;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
 .print-icon-button:focus-visible{outline:3px solid #417f70;outline-offset:2px}
-.activity-guides-heading{position:relative;padding-right:54px}
-.activity-guides-heading .print-icon-button{position:absolute;top:0;right:0}
+.activity-guides-heading{position:relative;box-sizing:border-box;display:flex;align-items:center;justify-content:space-between;gap:12px;min-height:56px;padding:4px 0;overflow:visible}
+.activity-guides-heading h2{min-width:0}
+.activity-guides-heading .print-icon-button{position:static;flex:0 0 48px;align-self:center}
 #activitiesTabPanel.activity-guides{
   display:flex;
   flex-direction:column;
@@ -1153,7 +1155,6 @@ body:has(#workshopPage:not([hidden])){height:100dvh;overflow:hidden}
 .helper-tool-row:not(:last-child) .helper-action{justify-content:center}
 .helper-tab-panel .helper-action>span{flex-basis:1.5em;width:1.5em;height:1.5em;font-size:.9em}
 .helper-tool-row:last-child .video-action{flex:0 0 clamp(64px,12vh,90px);width:clamp(64px,12vh,90px);min-width:clamp(64px,12vh,90px);height:clamp(64px,12vh,90px);padding:0}
-.activity-guides-heading .print-icon-button{top:0}
 
 /* Keep the activity area to one vertical reading flow with a compact horizontal selector. */
 #activitiesTabPanel.activity-guides{
@@ -1278,6 +1279,6 @@ body:has(#workshopPage:not([hidden])){height:100dvh;overflow:hidden}
 }
 .wc-step-toggle::after{transform:translate(-50%,-50%) rotate(90deg)}
 
-/* Lift the print control slightly without changing the responsive layout. */
-.print-guides-button{transform:translateY(-14px)}
+/* Keep the complete print circle inside the guide heading at narrow widths. */
+.print-guides-button{transform:none}
 
