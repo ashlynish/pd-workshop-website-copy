@@ -501,18 +501,13 @@ const emergencyDialog=document.getElementById('emergencyDialog'),callDialog=docu
   const stations=[...map.querySelectorAll('.circle[data-guide-target]')];
   const sequence=stations.slice().sort((a,b)=>Number(a.dataset.guideTarget.match(/activity(\d+)/)?.[1])-Number(b.dataset.guideTarget.match(/activity(\d+)/)?.[1]));
   const themes={activity0Guide:'purple',activity1Guide:'orange',activity2Guide:'blue',activity3Guide:'orange',activity4Guide:'blue',activity5Guide:'purple',activity6Guide:'blue',activity7Guide:'orange',activity8Guide:'purple'};
-  const pin='<svg class="station-pin" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M16 3a1 1 0 0 1 .117 1.993l-.117.007v4.764l1.894 3.789a1 1 0 0 1 .1.331l.006.116v2a1 1 0 0 1-.883.993l-.117.007h-4v4a1 1 0 0 1-1.993.117l-.007-.117v-4h-4a1 1 0 0 1-.993-.883l-.007-.117v-2a1 1 0 0 1 .06-.34l.046-.107l1.894-3.791V5a1 1 0 0 1-.117-1.993L8 3h8z"/></svg>';
   sequence.forEach((station,index)=>{
     const guide=document.getElementById(station.dataset.guideTarget);
     const title=guide?.querySelector('.activity-guide-copy h3')?.textContent?.trim()||station.title||`Activity ${index}`;
-    const instruction=guide?.querySelector('.activity-guide-instruction');
-    const description=instruction?.textContent?.replace(/\s+/g,' ').trim().replace(/^Guide the activity\s*/i,'')||'Open this station guide for activity details.';
-    const shortDescription=description.length>105?`${description.slice(0,102).trimEnd()}…`:description;
     station.dataset.theme=themes[station.dataset.guideTarget]||'purple';
     station.setAttribute('aria-label',`Open Activity ${index} guide: ${title}`);
-    station.innerHTML=`<span class="station-card-inner">${pin}<span class="station-number">${index}</span><span class="station-title"></span><span class="station-description"></span></span>`;
+    station.innerHTML=`<span class="station-card-inner"><span class="station-number">${index}</span><span class="station-title"></span></span>`;
     station.querySelector('.station-title').textContent=title;
-    station.querySelector('.station-description').textContent=shortDescription;
     station.style.order=String(index);
   });
   const svg=map.querySelector('.map-route');

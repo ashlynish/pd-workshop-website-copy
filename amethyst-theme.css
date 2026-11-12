@@ -365,11 +365,9 @@ dialog,
 }
 .page .map .circle:hover,.page .map .circle:focus-visible{z-index:30;transform:translate(-50%,-50%) rotate(0deg) scale(1.05);box-shadow:0 14px 30px rgba(61,60,79,.2)}
 .page .map .circle:focus-visible{outline:3px solid var(--amethyst-primary);outline-offset:3px}
-.page .map .circle .station-card-inner{position:relative;display:flex;flex-direction:column;align-items:flex-start;gap:4px;width:100%;height:100%;padding:10px;border:1px solid var(--station-border);border-radius:15px;background:var(--station-bg);overflow:hidden}
-.page .map .station-pin{width:17px;height:17px;flex:none;color:var(--station-accent);transform:rotate(-12deg)}
-.page .map .station-number{font-size:10px;font-weight:800;letter-spacing:.12em;line-height:1;color:var(--station-accent)}
+.page .map .circle .station-card-inner{position:relative;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:6px;width:100%;height:100%;padding:8px;border:1px solid var(--station-border);border-radius:15px;background:var(--station-bg);overflow:hidden;text-align:center}
+.page .map .station-number{font-size:clamp(15px,1.4vw,19px);font-weight:800;line-height:1;color:var(--station-accent)}
 .page .map .station-title{display:-webkit-box;max-width:100%;overflow:hidden;-webkit-box-orient:vertical;-webkit-line-clamp:2;font-size:clamp(11px,.95vw,13px);font-weight:800;line-height:1.12;color:var(--amethyst-fg)}
-.page .map .station-description{display:-webkit-box;max-width:100%;margin:0;overflow:hidden;-webkit-box-orient:vertical;-webkit-line-clamp:3;font-size:clamp(9px,.75vw,10px);line-height:1.2;color:var(--amethyst-muted-fg)}
 .page .map .circle[data-theme="orange"]{--station-bg:#fff2e7;--station-accent:#c87336;--station-border:#f4d8c3}
 .page .map .circle[data-theme="blue"]{--station-bg:#edf4fc;--station-accent:#5579a8;--station-border:#d5e3f4}
 .page .map .circle[data-theme="purple"]{--station-bg:#f1edf8;--station-accent:#79649f;--station-border:#dfd6ee}
@@ -386,17 +384,18 @@ dialog,
   .page .map .circle{position:absolute;left:calc(var(--x)*1%);top:calc(var(--y)*1.111111% - 11.111111%);width:clamp(68px,9vw,88px);height:clamp(82px,11vw,108px);min-width:0;min-height:0;padding:4px;transform:translate(-50%,-50%) rotate(var(--station-tilt,0deg))}
   .page .map .circle.c-zone[data-guide-target="activity0Guide"],.page .map .circle.c-zone[data-guide-target="activity8Guide"]{top:57.4778%}
   .page .map .circle:hover,.page .map .circle:focus-visible{transform:translate(-50%,-50%) rotate(0deg) scale(1.04)}
-  .page .map .circle .station-card-inner{gap:3px;padding:6px;border-radius:12px}
-  .page .map .station-pin{width:14px;height:14px}.page .map .station-number{font-size:9px}
-  .page .map .station-title{font-size:9px}.page .map .station-description{font-size:7.5px;-webkit-line-clamp:3}
+  .page .map .circle .station-card-inner{gap:5px;padding:6px;border-radius:12px}
+  .page .map .station-number{font-size:14px}
+  .page .map .station-title{font-size:10px}
 }
 @media(max-width:700px) and (orientation:portrait){
   .page .map{width:calc(100dvh - 184px);height:calc(100vw - 20px);transform:translate(-50%,-50%) rotate(-90deg)}
   .page .map .circle{width:clamp(62px,18vw,76px);height:clamp(76px,11dvh,92px);transform:translate(-50%,-50%) rotate(calc(90deg + var(--station-tilt,0deg)))}
   .page .map .circle:hover,.page .map .circle:focus-visible{transform:translate(-50%,-50%) rotate(90deg) scale(1.04)}
-  .page .map .circle .station-card-inner{gap:3px;padding:5px}
-  .page .map .station-pin{width:13px;height:13px}.page .map .station-number{font-size:8.5px}
-  .page .map .station-title{font-size:8px}.page .map .station-description{font-size:7px;-webkit-line-clamp:2}
+  .page .map .circle .station-card-inner{gap:4px;padding:5px}
+  .page .map .station-number{font-size:14px}
+  .page .map .station-title{font-size:9px}
+  .page .map .circle.c-zone[data-guide-target="activity8Guide"]{top:calc(57.4778% + clamp(72px,18vw,104px))}
 }
 
 /* Map stations open a single guide directly; remove the intermediate chooser UI. */
