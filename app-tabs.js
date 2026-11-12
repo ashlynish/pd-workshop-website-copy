@@ -85,11 +85,10 @@
       tab.tabIndex = isSelected ? 0 : -1;
     });
     panels.forEach(panel => { panel.hidden = panel.id !== selected.getAttribute('aria-controls'); });
-    if (name === 'map') {
-      map.hidden = false;
-      if (mapNote) mapNote.hidden = false;
-      activityGuides.hidden = true;
-    }
+    map.hidden = false;
+    if (mapNote) mapNote.hidden = false;
+    activityGuides.hidden = true;
+    app.classList.remove('is-guide-view');
     app.dataset.activeTab = name;
     if (scroll) window.scrollTo({ top: 0, behavior: 'smooth' });
   }
@@ -107,11 +106,17 @@
 
   map.addEventListener('click', event => {
     if (!event.target.closest('.circle')) return;
-    map.hidden = true;
+    map.hidden = false;
     if (mapNote) mapNote.hidden = true;
     activityGuides.hidden = false;
+    app.classList.add('is-guide-view');
     app.dataset.activeTab = 'map';
   }, true);
+  document.addEventListener('keydown', event => {
+    if (event.key !== 'Escape' || !app.classList.contains('is-guide-view')) return;
+    if (event.target.closest?.('dialog[open]')) return;
+    app.querySelector('.activity-detail-close')?.click();
+  });
 
   const welcome = document.getElementById('welcomeScreen');
   const welcomeAccess = welcome?.querySelector('.welcome-guide-access');
