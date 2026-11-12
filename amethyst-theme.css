@@ -380,16 +380,23 @@ dialog,
 .page .map-side-note{margin:0 0 10px}.page .map-hint{font-size:14px}
 @media(prefers-reduced-motion:reduce){.page .map-route path{animation:none}.page .map .circle{transition:none}}
 @media(max-width:900px){
-  #mapTabPanel.app-tab-panel{overflow-y:auto;padding-bottom:100px}
-  .map-tab-panel{justify-content:flex-start;overflow:visible}
-  .page .map{display:flex;flex-direction:column;gap:10px;width:100%;height:auto;min-height:0;padding:4px 8px 12px;aspect-ratio:auto;background-image:repeating-linear-gradient(to bottom,transparent 0,transparent 31px,rgba(138,121,171,.09) 31px,rgba(138,121,171,.09) 32px)!important}
-  .page .map::before,.page .map::after{display:none}
-  .page .map-route{height:100%;min-height:100%;inset:0;overflow:visible}
-  .page .map .circle{position:relative;left:auto;top:auto;width:min(100%,390px);height:132px;min-height:132px;align-self:center;padding:7px;transform:rotate(var(--station-tilt,0deg))}
-  .page .map .circle:hover,.page .map .circle:focus-visible{transform:rotate(0deg) scale(1.015)}
-  .page .map .circle .station-card-inner{gap:5px;padding:11px 13px}
-  .page .map .station-pin{width:19px;height:19px}.page .map .station-number{font-size:11px}
-  .page .map .station-title{font-size:14px}.page .map .station-description{font-size:11px;-webkit-line-clamp:3}
+  #mapTabPanel.app-tab-panel{overflow:hidden;padding:0}
+  .map-tab-panel{position:relative;display:block;flex:1 1 auto;min-height:0;overflow:hidden}
+  .page .map{position:absolute;left:50%;top:calc(50% - 42px);display:block;width:calc(100vw - 24px);height:calc(100dvh - 170px);min-height:0;max-height:none;margin:0;aspect-ratio:auto;transform:translate(-50%,-50%);border-radius:20px}
+  .page .map .circle{position:absolute;left:calc(var(--x)*1%);top:calc(var(--y)*1.111111% - 11.111111%);width:clamp(68px,9vw,88px);height:clamp(82px,11vw,108px);min-width:0;min-height:0;padding:4px;transform:translate(-50%,-50%) rotate(var(--station-tilt,0deg))}
+  .page .map .circle.c-zone[data-guide-target="activity0Guide"],.page .map .circle.c-zone[data-guide-target="activity8Guide"]{top:57.4778%}
+  .page .map .circle:hover,.page .map .circle:focus-visible{transform:translate(-50%,-50%) rotate(0deg) scale(1.04)}
+  .page .map .circle .station-card-inner{gap:3px;padding:6px;border-radius:12px}
+  .page .map .station-pin{width:14px;height:14px}.page .map .station-number{font-size:9px}
+  .page .map .station-title{font-size:9px}.page .map .station-description{font-size:7.5px;-webkit-line-clamp:3}
+}
+@media(max-width:700px) and (orientation:portrait){
+  .page .map{width:calc(100dvh - 184px);height:calc(100vw - 20px);transform:translate(-50%,-50%) rotate(-90deg)}
+  .page .map .circle{width:clamp(62px,18vw,76px);height:clamp(76px,11dvh,92px);transform:translate(-50%,-50%) rotate(calc(90deg + var(--station-tilt,0deg)))}
+  .page .map .circle:hover,.page .map .circle:focus-visible{transform:translate(-50%,-50%) rotate(90deg) scale(1.04)}
+  .page .map .circle .station-card-inner{gap:3px;padding:5px}
+  .page .map .station-pin{width:13px;height:13px}.page .map .station-number{font-size:8.5px}
+  .page .map .station-title{font-size:8px}.page .map .station-description{font-size:7px;-webkit-line-clamp:2}
 }
 
 /* Map stations open a single guide directly; remove the intermediate chooser UI. */

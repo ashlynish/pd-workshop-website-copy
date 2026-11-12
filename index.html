@@ -528,9 +528,9 @@ const emergencyDialog=document.getElementById('emergencyDialog'),callDialog=docu
       const needed=Math.max(760,Math.ceil(cardHeight/(2*Math.max(edge,.01))));
       if(Math.abs(map.clientHeight-needed)>2)map.style.height=`${needed}px`;
     }
-    const bounds=map.getBoundingClientRect();
-    if(!bounds.width||!bounds.height)return;
-    const points=sequence.map(station=>{const r=station.getBoundingClientRect();return{x:(r.left+r.width/2-bounds.left)/bounds.width*100,y:(r.top+r.height/2-bounds.top)/bounds.height*100}});
+    const mapWidth=map.clientWidth,mapHeight=map.clientHeight;
+    if(!mapWidth||!mapHeight)return;
+    const points=sequence.map(station=>({x:station.offsetLeft/mapWidth*100,y:station.offsetTop/mapHeight*100}));
     if(points.length<2)return;
     const n=value=>Number(value.toFixed(2));
     let d=`M ${n(points[0].x)} ${n(points[0].y)}`;
