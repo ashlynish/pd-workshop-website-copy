@@ -29,6 +29,12 @@
   quickActions.append(headerTools);
   app.insertBefore(quickActions, mapPanel);
 
+  const routeReminder = document.createElement('aside');
+  routeReminder.className = 'route-reminder';
+  routeReminder.setAttribute('aria-label', 'Workshop route reminder');
+  routeReminder.innerHTML = '<span>Workshop route</span><strong>0 → 1 → 2 → 3 → 4a–4c → 5 → 6a–6e → optional 7 → 8</strong>';
+  app.insertBefore(routeReminder, mapPanel);
+
   const printButton = document.getElementById('printQuickGuide');
   if (printButton) {
     printButton.classList.add('print-icon-button');

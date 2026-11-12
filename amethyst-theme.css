@@ -429,6 +429,9 @@ dialog,
 .page{padding-bottom:calc(env(safe-area-inset-bottom) + 12px)}
 .page .header{flex:0 0 auto}
 .quick-actions{flex:0 0 auto;width:100%;max-width:1000px;margin:0 auto}
+.route-reminder{display:flex;flex:0 0 auto;align-items:center;justify-content:center;gap:8px;width:100%;margin:8px auto;padding:7px 12px;border:1px solid var(--amethyst-border);border-radius:12px;background:rgba(255,255,255,.82);color:var(--amethyst-fg);text-align:center}
+.route-reminder span{flex:none;color:var(--amethyst-primary);font-size:10px;font-weight:800;letter-spacing:.08em;text-transform:uppercase}
+.route-reminder strong{font-size:clamp(9px,1vw,12px);font-weight:700;line-height:1.2}
 .quick-actions .header-tools{position:static!important;display:block;width:100%;max-width:none;margin:0;padding:0;align-items:stretch}
 .quick-actions .header-actions.quick-action-grid{display:grid!important;grid-template-columns:repeat(5,minmax(0,1fr));gap:clamp(4px,1vw,10px);width:100%;max-width:none;margin:0;align-items:stretch;justify-content:stretch;white-space:normal}
 .quick-actions .header-action-row{display:contents}
@@ -468,12 +471,16 @@ dialog,
 .quick-actions .helper-icon .helper-icon-play{fill:currentColor;stroke:none}
 @media(max-width:700px){
   .page{padding-top:calc(env(safe-area-inset-top) + 22px)}
+  .route-reminder{gap:6px;margin:6px auto;padding:6px 8px}
+  .route-reminder span{font-size:8px}
+  .route-reminder strong{font-size:clamp(8px,2.1vw,10px)}
   .page .map .station-title{-webkit-line-clamp:3}
   #workshopPage.is-guide-view #activitiesTabPanel .activity-guide-card[data-guide-accordion].is-expanded{top:clamp(20px,5vh,32px)}
 }
 @media(max-width:700px) and (orientation:portrait){
   .page .map .circle{width:clamp(70px,19vw,84px);height:clamp(82px,13dvh,100px)}
   .page .map .station-title{font-size:10px}
+  .page .map-tab-panel .map{width:calc(100dvh - 194px)}
   .page .map .circle.c-route-ramps[data-guide-target="activity2Guide"]{top:calc(23.87% - clamp(18px,4vw,24px))}
   .page .map .circle.c-calm[data-guide-target="activity5Guide"]{top:calc(37.48% + clamp(18px,4vw,24px))}
 }
