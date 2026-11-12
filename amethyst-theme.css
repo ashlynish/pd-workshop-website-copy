@@ -459,5 +459,5 @@ dialog,
 /* Soft radial welcome background in the same muted amethyst palette. */
 .welcome-screen{
   background-color:var(--amethyst-bg)!important;
-  background-image:radial-gradient(125% 125% at 50% -50%,color-mix(in srgb,var(--amethyst-primary) 15%,white) 40%,transparent 100%)!important
+  background-image:radial-gradient(125% 125% at 50% -50%,color-mix(in srgb,var(--amethyst-blue) 68%,var(--amethyst-secondary)) 40%,transparent 100%)!important
 }
