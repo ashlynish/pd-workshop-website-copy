@@ -499,7 +499,7 @@ const emergencyDialog=document.getElementById('emergencyDialog'),callDialog=docu
   const route=document.createElementNS('http://www.w3.org/2000/svg','path');
   route.setAttribute('class','station-route-path');route.setAttribute('vector-effect','non-scaling-stroke');svg.append(route);
   const draw=()=>{
-    if(window.matchMedia('(max-width:700px)').matches){map.style.height='';}
+    if(window.matchMedia('(max-width:900px)').matches){map.style.height='';}
     else if(map.clientHeight){
       const boundsNow=map.getBoundingClientRect();
       const ratios=sequence.map(station=>{const r=station.getBoundingClientRect();return(r.top+r.height/2-boundsNow.top)/boundsNow.height;});

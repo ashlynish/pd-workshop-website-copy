@@ -374,7 +374,7 @@ dialog,
 .map-tab-panel{justify-content:flex-start;overflow:visible}
 .page .map-side-note{margin:0 0 10px}.page .map-hint{font-size:14px}
 @media(prefers-reduced-motion:reduce){.page .map-route path{animation:none}.page .map .circle{transition:none}}
-@media(max-width:700px){
+@media(max-width:900px){
   #mapTabPanel.app-tab-panel{overflow-y:auto;padding-bottom:100px}
   .map-tab-panel{justify-content:flex-start;overflow:visible}
   .page .map{display:flex;flex-direction:column;gap:10px;width:100%;height:auto;min-height:0;padding:4px 8px 12px;aspect-ratio:auto;background-image:repeating-linear-gradient(to bottom,transparent 0,transparent 31px,rgba(138,121,171,.09) 31px,rgba(138,121,171,.09) 32px)!important}
