@@ -405,8 +405,8 @@ dialog,
 }
 #workshopPage.is-guide-view #activitiesTabPanel .activity-guide-panel{position:relative;padding-top:56px}
 #workshopPage.is-guide-view #activitiesTabPanel .activity-detail-close{
-  position:absolute;top:14px;left:14px;z-index:5;display:inline-flex;align-items:center;justify-content:center;
-  min-height:40px;margin:0;padding:0 14px;
+  position:sticky;top:12px;left:auto;z-index:5;display:grid;align-items:center;justify-content:center;
+  width:48px;height:48px;align-self:flex-end;margin:12px 22px -60px auto;padding:0;
   border:1px solid rgba(61,60,79,.16);border-radius:999px;background:rgba(255,255,255,.94);
   color:var(--amethyst-fg);font:600 13px/1.1 system-ui,sans-serif;cursor:pointer;box-shadow:0 3px 12px rgba(39,33,54,.12)
 }
