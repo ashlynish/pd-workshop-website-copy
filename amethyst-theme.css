@@ -460,3 +460,18 @@ dialog,
   background:linear-gradient(135deg,#dfd9ec 0%,#ece7f3 48%,#f8f7fa 100%)!important
 }
 .welcome-screen .welcome-map-art{display:none!important}
+
+/* Keep the quick actions in the requested order and give mobile maps more room. */
+.quick-actions #openCall{order:2}
+.quick-actions #openFeedback{order:3}
+@media(max-width:700px){
+  .page{padding-top:calc(env(safe-area-inset-top) + 22px)}
+  .page .map .station-title{-webkit-line-clamp:3}
+  #workshopPage.is-guide-view #activitiesTabPanel .activity-guide-card[data-guide-accordion].is-expanded{top:clamp(20px,5vh,32px)}
+}
+@media(max-width:700px) and (orientation:portrait){
+  .page .map .circle{width:clamp(70px,19vw,84px);height:clamp(82px,13dvh,100px)}
+  .page .map .station-title{font-size:10px}
+  .page .map .circle.c-route-ramps[data-guide-target="activity2Guide"]{top:calc(23.87% - clamp(18px,4vw,24px))}
+  .page .map .circle.c-calm[data-guide-target="activity5Guide"]{top:calc(37.48% + clamp(18px,4vw,24px))}
+}

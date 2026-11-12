@@ -503,7 +503,8 @@ const emergencyDialog=document.getElementById('emergencyDialog'),callDialog=docu
   const themes={activity0Guide:'purple',activity1Guide:'orange',activity2Guide:'blue',activity3Guide:'orange',activity4Guide:'blue',activity5Guide:'purple',activity6Guide:'blue',activity7Guide:'orange',activity8Guide:'purple'};
   sequence.forEach((station,index)=>{
     const guide=document.getElementById(station.dataset.guideTarget);
-    const title=guide?.querySelector('.activity-guide-copy h3')?.textContent?.trim()||station.title||`Activity ${index}`;
+    const rawTitle=guide?.querySelector('.activity-guide-copy h3')?.textContent?.trim()||station.title||`Activity ${index}`;
+    const title=rawTitle.replace(/^Activity\s+\d+\s*[·:–-]\s*/i,'');
     station.dataset.theme=themes[station.dataset.guideTarget]||'purple';
     station.setAttribute('aria-label',`Open Activity ${index} guide: ${title}`);
     station.innerHTML=`<span class="station-card-inner"><span class="station-number">${index}</span><span class="station-title"></span></span>`;
