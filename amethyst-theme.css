@@ -462,7 +462,7 @@ dialog,
 .quick-actions .helper-icon svg{display:block;width:68%;height:68%;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
 .quick-actions .helper-icon .helper-icon-play{fill:currentColor;stroke:none}
 .map-icon-svg{display:block;width:24px;height:24px;fill:none;stroke:currentColor;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
-#workshopPage.is-guide-view #activitiesTabPanel .activity-detail-close{display:grid;place-items:center;width:48px;height:48px;padding:0;border-radius:50%}
+#workshopPage.is-guide-view #activitiesTabPanel .activity-detail-close{right:22px;left:auto;display:grid;place-items:center;width:48px;height:48px;padding:0;border-radius:50%}
 @media(max-width:700px){
   .page{padding-top:calc(env(safe-area-inset-top) + 22px)}
   .route-reminder{gap:6px;margin:6px auto;padding:6px 8px}
@@ -476,5 +476,7 @@ dialog,
   .page .map .station-title{font-size:10px}
   .page .map-tab-panel .map{width:calc(100dvh - 194px)}
   .page .map .circle.c-route-ramps[data-guide-target="activity2Guide"]{top:calc(23.87% - clamp(18px,4vw,24px))}
+  .page .map .circle.c-route-ramps[data-guide-target="activity2Guide"]{left:calc(var(--x)*1% - clamp(18px,4vw,26px))}
+  .page .map .circle.c-calm[data-guide-target="activity5Guide"]{left:calc(var(--x)*1% + clamp(18px,5vw,28px))}
   .page .map .circle.c-calm[data-guide-target="activity5Guide"]{top:calc(37.48% + clamp(18px,4vw,24px))}
 }
