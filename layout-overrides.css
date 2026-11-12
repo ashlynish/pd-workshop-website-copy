@@ -72,7 +72,7 @@ html,body{height:auto;min-height:100%;overflow-x:hidden;overflow-y:auto}
 .placeholder-instruction span{color:#687970}
 .call-intro{margin:0 0 10px;color:#687970;font-size:14px}
 .contact-link{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-top:8px;padding:12px 14px;border:1px solid rgba(52,78,67,.16);border-radius:12px;background:#fffdf6;color:#283a34;text-decoration:none}
-.contact-link>span:first-child{display:grid;gap:4px}.contact-link small{color:#687970;font-size:12px}.contact-link>span:last-child{color:#557c6d;font-size:20px}
+.contact-link>span:first-child{display:grid;gap:4px}.contact-link small{color:#687970;font-size:12px}.contact-link>span:last-child{color:#557c6d;font-size:20px}.contact-link .contact-icon{flex:none;width:26px;height:26px;fill:none;stroke:#557c6d;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
 .guide-list{display:grid;gap:12px;margin:12px 0 0;padding-left:22px}
 .guide-list li{padding-left:2px;line-height:1.4}
 .guide-list li::marker{color:#71877d;font-weight:800}
