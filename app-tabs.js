@@ -56,7 +56,9 @@
   activityGuides.id = 'activitiesTabPanel';
   activityGuides.classList.add('app-tab-panel');
   activityGuides.setAttribute('role', 'tabpanel');
-  activityGuides.setAttribute('aria-labelledby', 'activitiesTab');
+  activityGuides.setAttribute('aria-labelledby', 'activityGuidesTitle');
+  activityGuides.hidden = true;
+  mapPanel.append(activityGuides);
 
   const nav = document.createElement('nav');
   nav.className = 'app-tab-bar';
@@ -68,15 +70,11 @@
     </button>
     <button class="app-tab" id="helpersTab" type="button" role="tab" aria-selected="false" aria-controls="helperTabPanel" data-app-tab="helpers" tabindex="-1">
       <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 7.5v5.2"/><circle cx="12" cy="16.5" r=".7" fill="currentColor" stroke="none"/></svg><span>Important</span>
-    </button>
-    <button class="app-tab" id="activitiesTab" type="button" role="tab" aria-selected="false" aria-controls="activitiesTabPanel" data-app-tab="activities" tabindex="-1">
-      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 6h11M9 12h11M9 18h11"/><path d="m3 6 1.2 1.2L6.5 5m-3.5 7 1.2 1.2L6.5 11m-3.5 7 1.2 1.2L6.5 17"/></svg><span>Activities</span>
     </button>`;
   app.append(nav);
 
-  nav.insertBefore(nav.querySelector('#activitiesTab'), nav.querySelector('#helpersTab'));
   const tabs = [...nav.querySelectorAll('[role="tab"]')];
-  const panels = [mapPanel, helperPanel, activityGuides];
+  const panels = [mapPanel, helperPanel];
   function activateTab(name, { scroll = true } = {}) {
     const selected = tabs.find(tab => tab.dataset.appTab === name);
     if (!selected) return;
@@ -87,6 +85,11 @@
       tab.tabIndex = isSelected ? 0 : -1;
     });
     panels.forEach(panel => { panel.hidden = panel.id !== selected.getAttribute('aria-controls'); });
+    if (name === 'map') {
+      map.hidden = false;
+      if (mapNote) mapNote.hidden = false;
+      activityGuides.hidden = true;
+    }
     app.dataset.activeTab = name;
     if (scroll) window.scrollTo({ top: 0, behavior: 'smooth' });
   }
@@ -103,7 +106,11 @@
   });
 
   map.addEventListener('click', event => {
-    if (event.target.closest('.circle')) activateTab('activities', { scroll: false });
+    if (!event.target.closest('.circle')) return;
+    map.hidden = true;
+    if (mapNote) mapNote.hidden = true;
+    activityGuides.hidden = false;
+    app.dataset.activeTab = 'map';
   }, true);
 
   const welcome = document.getElementById('welcomeScreen');
