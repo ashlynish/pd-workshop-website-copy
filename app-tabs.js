@@ -23,7 +23,7 @@
     const buttons = [...actions.querySelectorAll('.helper-action')];
     actions.classList.add('quick-action-grid');
     actions.setAttribute('role', 'group');
-    actions.setAttribute('aria-label', 'Precaution, feedback, call, guide, and video');
+    actions.setAttribute('aria-label', 'Guide, video, call, and feedback');
     actions.replaceChildren(...buttons);
   }
   quickActions.append(headerTools);

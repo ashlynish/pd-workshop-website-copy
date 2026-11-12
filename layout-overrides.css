@@ -47,8 +47,6 @@ html,body{height:auto;min-height:100%;overflow-x:hidden;overflow-y:auto}
 .helper-action:hover{filter:brightness(.97)}
 .helper-action:focus-visible,.dialog-close:focus-visible,.contact-link:focus-visible{outline:3px solid #31594d;outline-offset:2px}
 .helper-action span{display:grid;place-items:center;width:21px;height:21px;border-radius:50%;font-size:13px}
-.emergency-action{border-color:#bf6b53;background:#f5e4dc;color:#713723}
-.emergency-action span{background:#c56d50;color:#fff}
 .call-action{border-color:#719c8e;background:#e4eee8;color:#294b40}
 .call-action span{background:#719c8e;color:#fff}
 .guide-action{border-color:#8c9d8c;background:#edf0e8;color:#344c40}
@@ -159,10 +157,6 @@ html,body{height:auto;min-height:100%;overflow-x:hidden;overflow-y:auto}
 }
 @media(max-width:380px){.header-tools{top:calc(env(safe-area-inset-top) + 42px);width:calc(100vw - 18px)}}
 
-
-/* Place feedback directly under Precaution. */
-.header-actions{flex-direction:column;align-items:flex-start;gap:6px}
-.header-action-row{display:flex;align-items:flex-start;gap:6px}
 
 /* Main-page activity guides complement the route and map overview. */
 .activity-guides{grid-column:1/-1;grid-row:3;min-width:0;margin:10px 0 22px}
