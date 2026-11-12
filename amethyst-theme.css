@@ -391,3 +391,6 @@ dialog,
   .page .map .station-pin{width:19px;height:19px}.page .map .station-number{font-size:11px}
   .page .map .station-title{font-size:14px}.page .map .station-description{font-size:11px;-webkit-line-clamp:3}
 }
+
+/* Map stations open a single guide directly; remove the intermediate chooser UI. */
+.page .map-side-note,.activity-guides-heading,.activity-guide-tablist{display:none!important}

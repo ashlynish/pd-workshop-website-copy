@@ -413,6 +413,7 @@ const emergencyDialog=document.getElementById('emergencyDialog'),callDialog=docu
     const card=document.getElementById(circle.dataset.guideTarget);
     const toggle=card&&toggles.get(card);
     if(toggle&&!card.classList.contains('is-expanded'))toggle.click();
+    if(card)requestAnimationFrame(()=>{card.scrollIntoView({behavior:'smooth',block:'start'});card.focus({preventScroll:true});});
   });
   const printButton=document.getElementById('printQuickGuide');
   const openStates=new Map();
