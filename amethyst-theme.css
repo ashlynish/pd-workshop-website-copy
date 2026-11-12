@@ -456,7 +456,8 @@ dialog,
   .page .map-tab-panel .map{top:50%;width:calc(100dvh - 160px);height:calc(100vw - 20px);transform:translate(-50%,-50%) rotate(-90deg)}
 }
 
-/* Soft radial welcome background in the same muted amethyst palette. */
+/* Clear amethyst gradient, with the decorative map rings removed. */
 .welcome-screen{
-  background:radial-gradient(125% 125% at 50% -35%,var(--amethyst-secondary) 25%,color-mix(in srgb,var(--amethyst-secondary) 48%,var(--amethyst-bg)) 60%,var(--amethyst-bg) 100%)!important
+  background:linear-gradient(135deg,#dfd9ec 0%,#ece7f3 48%,#f8f7fa 100%)!important
 }
+.welcome-screen .welcome-map-art{display:none!important}
