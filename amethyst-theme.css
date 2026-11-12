@@ -402,19 +402,19 @@ dialog,
 .page .map-side-note,.activity-guides-heading,.activity-guide-tablist{display:none!important}
 
 /* Keep the map visible behind a screen-sized, scrollable station guide. */
-#workshopPage.is-guide-view::before{content:"";position:fixed;z-index:120;inset:0;background:rgba(48,43,62,.42);backdrop-filter:blur(3px);pointer-events:none}
+#workshopPage.is-guide-view::before{content:"";position:fixed;z-index:120;inset:0;background:rgba(48,43,62,.42);backdrop-filter:blur(3px);pointer-events:auto;cursor:pointer}
 #workshopPage.is-guide-view #activitiesTabPanel .activity-guide-card[data-guide-accordion].is-expanded{
-  position:fixed!important;z-index:130;top:clamp(10px,2.4vh,24px);bottom:calc(env(safe-area-inset-bottom) + 94px);
+  position:fixed!important;z-index:130;top:clamp(24px,6vh,44px);bottom:calc(env(safe-area-inset-bottom) + clamp(24px,6vh,44px));
   left:50%;right:auto;transform:translateX(-50%);width:min(90vw,860px)!important;height:auto!important;min-height:0;max-height:none;
   overflow-x:hidden!important;overflow-y:auto!important;overscroll-behavior:contain;
   border:1px solid var(--amethyst-border);border-radius:22px;
   background:var(--amethyst-card)!important;box-shadow:0 24px 80px rgba(39,33,54,.3);
   scroll-margin:0
 }
-#workshopPage.is-guide-view #activitiesTabPanel .activity-guide-panel{position:relative}
+#workshopPage.is-guide-view #activitiesTabPanel .activity-guide-panel{position:relative;padding-top:56px}
 #workshopPage.is-guide-view #activitiesTabPanel .activity-detail-close{
-  position:sticky;top:8px;z-index:5;display:inline-flex;align-items:center;justify-content:center;
-  align-self:flex-end;min-height:40px;margin:8px 8px -42px auto;padding:0 14px;
+  position:absolute;top:14px;left:14px;z-index:5;display:inline-flex;align-items:center;justify-content:center;
+  min-height:40px;margin:0;padding:0 14px;
   border:1px solid rgba(61,60,79,.16);border-radius:999px;background:rgba(255,255,255,.94);
   color:var(--amethyst-fg);font:600 13px/1.1 system-ui,sans-serif;cursor:pointer;box-shadow:0 3px 12px rgba(39,33,54,.12)
 }
@@ -422,7 +422,7 @@ dialog,
 #workshopPage.is-guide-view #activitiesTabPanel .activity-guide-image img{max-height:40vh;object-fit:contain}
 #workshopPage.is-guide-view .app-tab-bar{z-index:140}
 @media(max-width:700px){
-  #workshopPage.is-guide-view #activitiesTabPanel .activity-guide-card[data-guide-accordion].is-expanded{top:8px;width:calc(100vw - 16px)!important;bottom:calc(env(safe-area-inset-bottom) + 92px)}
+  #workshopPage.is-guide-view #activitiesTabPanel .activity-guide-card[data-guide-accordion].is-expanded{top:clamp(24px,7vh,42px);width:min(90vw,860px)!important;bottom:calc(env(safe-area-inset-bottom) + clamp(24px,7vh,42px))}
 }
 
 /* One page: helper actions first, the station map fills the space below. */
@@ -464,6 +464,8 @@ dialog,
 /* Keep the quick actions in the requested order and give mobile maps more room. */
 .quick-actions #openCall{order:2}
 .quick-actions #openFeedback{order:3}
+.quick-actions .helper-icon svg{display:block;width:68%;height:68%;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+.quick-actions .helper-icon .helper-icon-play{fill:currentColor;stroke:none}
 @media(max-width:700px){
   .page{padding-top:calc(env(safe-area-inset-top) + 22px)}
   .page .map .station-title{-webkit-line-clamp:3}

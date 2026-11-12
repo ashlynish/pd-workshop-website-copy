@@ -54,6 +54,11 @@
     app.dataset.activeTab = 'map';
   }, true);
 
+  app.addEventListener('click', event => {
+    if (!app.classList.contains('is-guide-view') || event.target !== app) return;
+    app.querySelector('.activity-detail-close')?.click();
+  });
+
   document.addEventListener('keydown', event => {
     if (event.key !== 'Escape' || !app.classList.contains('is-guide-view')) return;
     if (event.target.closest?.('dialog[open]')) return;
