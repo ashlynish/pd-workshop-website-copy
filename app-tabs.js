@@ -10,39 +10,24 @@
   const mapPanel = document.createElement('section');
   mapPanel.className = 'app-tab-panel map-tab-panel';
   mapPanel.id = 'mapTabPanel';
-  mapPanel.setAttribute('role', 'tabpanel');
   mapPanel.setAttribute('aria-label', 'Workshop map');
   map.parentNode.insertBefore(mapPanel, map);
   mapPanel.append(map);
   if (mapNote) mapPanel.append(mapNote);
 
-  const helperPanel = document.createElement('section');
-  helperPanel.className = 'app-tab-panel helper-tab-panel';
-  helperPanel.id = 'helperTabPanel';
-  helperPanel.setAttribute('role', 'tabpanel');
-  helperPanel.setAttribute('aria-label', 'Helper quick actions');
+  const quickActions = document.createElement('section');
+  quickActions.className = 'quick-actions';
+  quickActions.setAttribute('aria-label', 'Helper actions');
   const actions = headerTools.querySelector('.header-actions');
   if (actions) {
-    const groups = [
-      ['openEmergency'],
-      ['openFeedback'],
-      ['openCall'],
-      ['openGuide', 'openIntroVideo'],
-    ];
-    actions.replaceChildren(...groups.map((ids, index) => {
-      const row = document.createElement('div');
-      row.className = 'helper-tool-row';
-      row.setAttribute('role', 'group');
-      row.setAttribute('aria-label', ['Precaution', 'Feedback', 'Call', 'Guide and video'][index]);
-      ids.forEach(id => {
-        const button = document.getElementById(id);
-        if (button) row.append(button);
-      });
-      return row;
-    }));
+    const buttons = [...actions.querySelectorAll('.helper-action')];
+    actions.classList.add('quick-action-grid');
+    actions.setAttribute('role', 'group');
+    actions.setAttribute('aria-label', 'Precaution, feedback, call, guide, and video');
+    actions.replaceChildren(...buttons);
   }
-  helperPanel.append(headerTools);
-  activityGuides.parentNode.insertBefore(helperPanel, activityGuides);
+  quickActions.append(headerTools);
+  app.insertBefore(quickActions, mapPanel);
 
   const printButton = document.getElementById('printQuickGuide');
   if (printButton) {
@@ -55,54 +40,10 @@
 
   activityGuides.id = 'activitiesTabPanel';
   activityGuides.classList.add('app-tab-panel');
-  activityGuides.setAttribute('role', 'tabpanel');
+  activityGuides.setAttribute('role', 'region');
   activityGuides.setAttribute('aria-labelledby', 'activityGuidesTitle');
   activityGuides.hidden = true;
   mapPanel.append(activityGuides);
-
-  const nav = document.createElement('nav');
-  nav.className = 'app-tab-bar';
-  nav.setAttribute('aria-label', 'Main navigation');
-  nav.setAttribute('role', 'tablist');
-  nav.innerHTML = `
-    <button class="app-tab is-selected" id="mapTab" type="button" role="tab" aria-selected="true" aria-controls="mapTabPanel" data-app-tab="map">
-      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m3 6 6-3 6 3 6-3v15l-6 3-6-3-6 3V6Z"/><path d="M9 3v15m6-12v15"/></svg><span>Map</span>
-    </button>
-    <button class="app-tab" id="helpersTab" type="button" role="tab" aria-selected="false" aria-controls="helperTabPanel" data-app-tab="helpers" tabindex="-1">
-      <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 7.5v5.2"/><circle cx="12" cy="16.5" r=".7" fill="currentColor" stroke="none"/></svg><span>Important</span>
-    </button>`;
-  app.append(nav);
-
-  const tabs = [...nav.querySelectorAll('[role="tab"]')];
-  const panels = [mapPanel, helperPanel];
-  function activateTab(name, { scroll = true } = {}) {
-    const selected = tabs.find(tab => tab.dataset.appTab === name);
-    if (!selected) return;
-    tabs.forEach(tab => {
-      const isSelected = tab === selected;
-      tab.classList.toggle('is-selected', isSelected);
-      tab.setAttribute('aria-selected', String(isSelected));
-      tab.tabIndex = isSelected ? 0 : -1;
-    });
-    panels.forEach(panel => { panel.hidden = panel.id !== selected.getAttribute('aria-controls'); });
-    map.hidden = false;
-    if (mapNote) mapNote.hidden = false;
-    activityGuides.hidden = true;
-    app.classList.remove('is-guide-view');
-    app.dataset.activeTab = name;
-    if (scroll) window.scrollTo({ top: 0, behavior: 'smooth' });
-  }
-
-  tabs.forEach((tab, index) => {
-    tab.addEventListener('click', () => activateTab(tab.dataset.appTab));
-    tab.addEventListener('keydown', event => {
-      if (!['ArrowLeft', 'ArrowRight', 'Home', 'End'].includes(event.key)) return;
-      event.preventDefault();
-      const nextIndex = event.key === 'Home' ? 0 : event.key === 'End' ? tabs.length - 1 : (index + (event.key === 'ArrowRight' ? 1 : tabs.length - 1)) % tabs.length;
-      tabs[nextIndex].focus();
-      activateTab(tabs[nextIndex].dataset.appTab);
-    });
-  });
 
   map.addEventListener('click', event => {
     if (!event.target.closest('.circle')) return;
@@ -112,6 +53,7 @@
     app.classList.add('is-guide-view');
     app.dataset.activeTab = 'map';
   }, true);
+
   document.addEventListener('keydown', event => {
     if (event.key !== 'Escape' || !app.classList.contains('is-guide-view')) return;
     if (event.target.closest?.('dialog[open]')) return;
@@ -123,5 +65,8 @@
   const tapOpenPrompt = document.getElementById('tapOpenPrompt');
   if (welcomeAccess && tapOpenPrompt) tapOpenPrompt.before(welcomeAccess);
 
-  activateTab('map', { scroll: false });
+  map.hidden = false;
+  if (mapNote) mapNote.hidden = false;
+  activityGuides.hidden = true;
+  app.dataset.activeTab = 'map';
 })();
